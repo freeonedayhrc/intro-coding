@@ -1,0 +1,89 @@
+#+TITLE: Intro to JS Exercises
+
+* Warmup:
+
+* Project 1: Book Store
+
+** Exercise 0: Building a Table
+
+The Book Store project includes a number of helper functions for constructing a
+table of books. Let's explore some of these functions to see how they work.
+
+a) Let's start by exploring the dataset that we'll be working with. In the
+=INITIALIZATION= section of the project you'll see ~var bookStore =
+generateBookStore()~. ~generateBookStore~ is a function that generates the books
+that we'll be working with. Add the following code and then open up a :
+
+#+begin_src javascript
+console.log("The books are:", bookStore);
+#+end_src
+
+We can use ~console.log~ to see what's happening inside our programs. To see
+what was logged, open a console:
+
+#+CAPTION: How to open a console
+[[./img/open-console.png]]
+
+a) A table consists of /rows/ and /columns/. In this example, we'll be working
+with an array of "books" (the =bookStore= variable), where each book is
+represented as an object. Try adding ~console.log(bookStore)~ to the file to see
+what this data looks like. Make sure to interact with the logged result to get a
+feel for what the data looks like. How many books in the ~bookStore~ are there?
+What are the keys of each book? In our table, each book will be a /row/ of the
+table, and the /columns/ will be the keys.
+
+b) Most tables have a /header/ that describes
+
+** Exercise 1: Implement a Search Algorithm
+
+#+begin_src javascript
+function isMatch(book) {
+  return true; // not too helpful
+}
+#+end_src
+
+
+a) One way to search our books would be to check if the beginning of the book's
+title (=book.title=) was equal to our =query=. JavaScript strings have a method
+=substring= that takes two arguments: =begin= and =end=. Try the following at a
+console:
+
+#+begin_src javascript
+"hello, world".substring(0,3);
+"hello, world".substring(3,7);
+#+end_src
+
+Given that we can determine the length of our =query= with =query.length=, and
+can check equality with ~===~, how can we use =substring= to determine if the
+beginning of the book's title matches the =query=?
+
+b) How does your =isMatch= function fare with different cases? Change =isMatch=
+to be case-insensitive. Hint: try a search for "javascript lowercase string" in
+Google.
+
+c) Modify =isMatch= to search against a different key in the =book= object (e.g.
+author). Having to modify the code itself to search against a different field
+doesn't seem like a very good solution; ideally we would like to be able to
+search by title /or/ author -- fix this by using the logical *or* operator
+(~||~) to check against multiple keys at once. Try the following at a console to
+get an idea of how ~||~ works:
+
+#+begin_src javascript
+true || true
+true || false
+false || false
+var animal = "monkey";
+animal === "giraffe" || animal === "monkey"
+#+end_src
+
+d) Let's say we're searching for the book "Infinite Jest", and we try searching
+for the word "jest" -- does the search work? Why not? Change =isMatch= again so
+that it does. The string method =indexOf= can help us here. Try the following to
+get an idea of what =indexOf= does:
+
+#+begin_src javascript
+"hello, world".indexOf("hello");
+"hello, world".indexOf("wor");
+"hello, world".indexOf(", w");
+"hello, world".indexOf("chimpanzee");
+#+end_src
