@@ -4,18 +4,19 @@
 
 * Project 1: Book Store
 
-** Exercise 0: Building a Table
+** Exercise 1: Building a Table
 
 The Book Store project includes a number of helper functions for constructing a
 table of books. Let's explore some of these functions to see how they work.
 
-a) Let's start by exploring the dataset that we'll be working with. In the
+*a)* Let's start by exploring the dataset that we'll be working with. In the
 =INITIALIZATION= section of the project you'll see ~var bookStore =
 generateBookStore()~. ~generateBookStore~ is a function that generates the books
-that we'll be working with. Add the following code and then open up a :
+that we'll be working with. Open a console and enter the following:
 
 #+begin_src javascript
 console.log("The books are:", bookStore);
+console.log("The length of the bookStore is:", bookStore.length);
 #+end_src
 
 We can use ~console.log~ to see what's happening inside our programs. To see
@@ -24,17 +25,31 @@ what was logged, open a console:
 #+CAPTION: How to open a console
 [[./img/open-console.png]]
 
-a) A table consists of /rows/ and /columns/. In this example, we'll be working
-with an array of "books" (the =bookStore= variable), where each book is
-represented as an object. Try adding ~console.log(bookStore)~ to the file to see
-what this data looks like. Make sure to interact with the logged result to get a
-feel for what the data looks like. How many books in the ~bookStore~ are there?
-What are the keys of each book? In our table, each book will be a /row/ of the
-table, and the /columns/ will be the keys.
+What kind of data structure is ~bookStore~? How many books does it contain? What
+kind of data structure is each book? Make sure to interact with the logged
+output. You should see something like the following:
 
-b) Most tables have a /header/ that describes
+#+CAPTION: Sample output
+[[./img/sample-outpout-1a.png]]
 
-** Exercise 1: Implement a Search Algorithm
+*b)* A table consists of /rows/ and /columns/. Usually a /header/ will be the
+first row, and will indicate what the contents of each column are. A JavaScript
+(JS) function has been provided to work with the header of the table called
+~setTableHeader~. It takes one argument -- an array of strings that will be
+turned into header names. Try entering the following to your code:
+
+#+begin_src javascript
+setTableHeader([]);
+setTableHeader(["Hello"]);
+setTableHeader(["Hello", "World"]);
+#+end_src
+
+You've already seen what a single book object looks like. Change the call to
+~setTableHeader~ to contain the appropriate header values based the keys present
+in each book. Try playing with the order of the header strings -- does the order
+matter?
+
+** Exercise 3: Implement a Search Algorithm
 
 #+begin_src javascript
 function isMatch(book) {
