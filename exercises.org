@@ -2,7 +2,7 @@
 
 * Warmup:
 
-* Project 1: Book Store
+* [[http://codepen.io/jlehman/pen/mVqrmw/?editors=001][Project 1: Book Store]]
 
 ** Exercise 1: Building a Table
 
@@ -36,7 +36,7 @@ output. You should see something like the following:
 first row, and will indicate what the contents of each column are. A JavaScript
 (JS) function has been provided to work with the header of the table called
 ~setTableHeader~. It takes one argument -- an array of strings that will be
-turned into header names. Try entering the following to your code:
+turned into header names. Try entering the following in your code:
 
 #+begin_src javascript
 setTableHeader([]);
