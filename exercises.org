@@ -62,6 +62,40 @@ setTableBody(objects, ["a", "b"]);
 
 Use ~setTableBody~ to display a table of books.
 
+** Exercise 2: Set up Search
+
+#+begin_src javascript
+byId("search-button").addEventListener('click', function() {
+  var query = byId("search-input").value
+  // Let's make some searching happen.
+});
+#+end_src
+
+There's a function in the ~BOOK STORE: Searching~ section called ~searchBooks~
+that, given a query, searches books. Currently ~searchBooks~ does a really bad
+job; if the query is an empty string (nothing input in the search bar) has been
+entered, it'll return all the books. If /anything/ is entered, it'll return *an
+empty array* indicating that there are no matches. Making the search work better
+is the subject of the next exercise -- first, let's hook up the search button to
+perform the search (even though the search isn't very good yet) when it is
+clicked.
+
+*a)* ~searchBooks~ takes a single argument -- a query to search books against --
+and returns a *new array of books*. You can experiment with ~searchBooks~ like so:
+
+#+begin_src javascript
+console.log("The result of the search is: ", searchBooks(query));
+#+end_src
+
+Try adding the above line and pressing the search button both with /nothing/
+entered in the search field, and with /anything/ entered in the search field.
+What happens?
+
+*b)* Instead of logging the result, we want the table to update based on the
+output of ~searchBooks~. What have we used so far that allows us to set the body
+of the table based on an array of books? Use that function to update the table
+whenever the search button is pressed.
+
 ** Exercise 3: Implement a Search Algorithm
 
 #+begin_src javascript
