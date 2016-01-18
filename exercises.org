@@ -49,6 +49,19 @@ You've already seen what a single book object looks like. Change the call to
 in each book. Try playing with the order of the header strings -- does the order
 matter?
 
+*c)* Now that we have a header, it's time to add the content (the /rows/). A
+similar function for accomplishing this is provided: ~setTableBody~. This
+function accepts two arguments: an array of objects, and an array of strings
+that represent names of keys in each object. Let's play with it a bit:
+
+#+begin_src javascript
+var objects = [{a: "Hello", b: "World"}, {a: "Dog", b: "Cat"}, {a: "Orange", b: "Banana"}];
+setTableHeader(["A", "B"]);
+setTableBody(objects, ["a", "b"]);
+#+end_src
+
+Use ~setTableBody~ to display a table of books.
+
 ** Exercise 3: Implement a Search Algorithm
 
 #+begin_src javascript
