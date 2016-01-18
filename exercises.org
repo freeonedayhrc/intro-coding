@@ -30,7 +30,7 @@ kind of data structure is each book? Make sure to interact with the logged
 output. You should see something like the following:
 
 #+CAPTION: Sample output
-[[./img/sample-outpout-1a.png]]
+[[./img/sample-output-1a.png]]
 
 *b)* A table consists of /rows/ and /columns/. Usually a /header/ will be the
 first row, and will indicate what the contents of each column are. A JavaScript
