@@ -1,5 +1,10 @@
 #+TITLE: Intro to JS Exercises
 
+* Setup
+
+Before beginning, please familiarize yourself with the [[./environment.org][environment]] that we'll be
+using.
+
 * [[http://codepen.io/jlehman/pen/GoOMGz?editors=001][Warmup]]
 
 Get as far through the warmup exercises as you can.
@@ -80,7 +85,7 @@ a) Update the ~headers~ and ~rowKeys~ to reflect the food's *type* and
 b) Add another key-value pair to each food object (/e.g./ organic, vegan,
 gluten-free, color, etc.).
 
-c) Add two more food objects the the array.
+c) Add two more food objects to the array.
 
 *** 1.2 What is the ~bookStore~?
 

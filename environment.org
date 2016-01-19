@@ -1,0 +1,73 @@
+#+TITLE: Environment Setup
+
+This document outlines what tools we'll be using during the class to complete
+exercises. It is recommended that you at least read the /Prerequisites/ section
+below before the start of class.
+
+* Prerequisites
+
+** Download Google Chrome
+
+All demos and lecture content will be conducted from within [[https://www.google.com/chrome/browser/desktop/][Google Chrome]]: it is
+recommended that you download and install Chrome prior to class.
+
+All examples will be conducted from within Chrome -- this is important because
+each browser's /console/ is different in:
+
++ Appearance
++ Function
++ Keystrokes to open
+
+If you are using Chrome, the demos and help that we give will be more relevant
+and familiar.
+
+** Learn to Open the Console
+
+[[./img/open-console.png]]
+
+It is recommended that you memorize how to open a console with the appropriate
+keyboard shortcut. We'll open and close the console frequently.
+
+* Working with the Console
+
+** Entering Code
+
+Code can be entered directly into the console:
+
+[[./img/entering-code-console.gif]]
+
+** Cycling History
+
+You can use the *up/down arrow keys* on your keyboard to cycle through the
+console's history:
+
+[[./img/console-history.gif]]
+
+** Data-structure Expansion
+
+Arrays and objects can be expanded and viewed:
+
+[[./img/expanding-data-console.gif]]
+
+* Working in [[http://codepen.io][Codepen]]
+
+** Layout
+
+The default layout isn't great, but it can be changed!
+
+[[./img/codepen-layout.gif]]
+
+** Console
+
+Unfortunately, functions and variables defined in codepen cannot be accessed
+from the console. You'll have to log their output to work with them.
+
+[[./img/codepen-console.gif]]
+
+* Getting Help
+
+# ** Screenshots
+
+# Knowing how to take a screenshot is really helpful -- nearly all chat clients
+
+TODO
