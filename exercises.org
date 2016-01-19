@@ -12,29 +12,10 @@ This project includes a number of helper functions for constructing a table of
 books and adding functionality. Let's explore some of this functionality through
 experimentation!
 
-*** 1.1 What is the ~bookStore~?
+The following sections will involve inserting code into *codepen* in and above
+the area marked: ~EXERCISE 1 CODE GOES HERE~
 
-Let's start by exploring the dataset that we'll be working with. In the
-=INITIALIZATION= section of the project you'll see ~var bookStore =
-generateBookStore()~. ~generateBookStore~ is a function that generates the books
-that we'll be working with. Enter the following in *codepen* beneath ~EXERCISE 1
-CODE GOES HERE~:
-
-#+begin_src javascript
-console.log("The books are:", bookStore);
-console.log("The length of the bookStore is:", bookStore.length);
-#+end_src
-
-Now open up a console and see what was logged. You should see something like the
-following:
-
-#+CAPTION: Sample output
-[[./img/sample-output-1a.png]]
-
-What kind of data structure is ~bookStore~? How many books does it contain? What
-kind of data structure is each book?
-
-*** 1.2 Experimenting with ~drawTable~
+*** 1.1 Experimenting with ~drawTable~
 
 A table consists of /rows/ and /columns/. Usually a /header/ will be the
 first row, and will indicate what the contents of each column are.
@@ -43,7 +24,7 @@ At this point, you should see an empty table that looks like this:
 
 [[./img/starting-table.png]]
 
-You should also see some code that looks like this:
+You should also see the following code:
 
 #+begin_src javascript
 var tableConfig = {
@@ -76,6 +57,28 @@ drawTable(food, tableConfig);
 If everything is working, you should see this:
 
 [[./img/food-table-no-columns.png]]
+
+
+*** 1.2 What is the ~bookStore~?
+
+Let's explor the dataset that we'll be working with. In the =INITIALIZATION=
+section of the project you'll see ~var bookStore = generateBookStore()~.
+~generateBookStore~ is a function that generates the books that we'll be working
+with. Enter the following in *codepen* beneath ~EXERCISE 1 CODE GOES HERE~:
+
+#+begin_src javascript
+console.log("The books are:", bookStore);
+console.log("The length of the bookStore is:", bookStore.length);
+#+end_src
+
+Now open up a console and see what was logged. You should see something like the
+following:
+
+#+CAPTION: Sample output
+[[./img/sample-output-1a.png]]
+
+What kind of data structure is ~bookStore~? How many books does it contain? What
+kind of data structure is each book?
 
 ** Exercise 2: Set up Search
 
