@@ -99,7 +99,7 @@ console.log("The books are:", bookStore);
 console.log("The length of the bookStore is:", bookStore.length);
 #+end_src
 
-Now open up a console and see what was logged. You should see something like the
+Now open up a console (in *codepen*) and see what was logged. You should see something like the
 following:
 
 [[./img/sample-output-1a.png]]
@@ -132,8 +132,8 @@ When everything is working, you should see something like this:
 
 ** Exercise 2: Set up Search
 
-Open the console, enter some text in the search books field, and press the
-search button. You should see something like this:
+Open the console (in *codepen*, not here), enter some text in the search books
+field, and press the search button. You should see something like this:
 
 [[./img/ex2-search-console.png]]
 
