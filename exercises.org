@@ -100,12 +100,16 @@ whenever the search button is pressed.
 
 #+begin_src javascript
 function isMatch(book) {
-  return true; // not too helpful
+  return false; // this is a really bad search
 }
 #+end_src
 
+The ~isMatch~ function will be called on each book in the ~bookStore~, and
+should *return* ~true~ if that book is a match, and ~false~ if not. We'll now
+explore a couple of techniques for implementing the search algorithm. When
+implementing this function, don't forget ~return~ true or false!
 
-a) One way to search our books would be to check if the beginning of the book's
+*a)* One way to search our books would be to check if the beginning of the book's
 title (=book.title=) was equal to our =query=. JavaScript strings have a method
 =substring= that takes two arguments: =begin= and =end=. Try the following at a
 console:
@@ -119,11 +123,11 @@ Given that we can determine the length of our =query= with =query.length=, and
 can check equality with ~===~, how can we use =substring= to determine if the
 beginning of the book's title matches the =query=?
 
-b) How does your =isMatch= function fare with different cases? Change =isMatch=
+*b)* How does your =isMatch= function fare with different cases? Change =isMatch=
 to be case-insensitive. Hint: try a search for "javascript lowercase string" in
 Google.
 
-c) Modify =isMatch= to search against a different key in the =book= object (e.g.
+*c)* Modify =isMatch= to search against a different key in the =book= object (e.g.
 author). Having to modify the code itself to search against a different field
 doesn't seem like a very good solution; ideally we would like to be able to
 search by title /or/ author -- fix this by using the logical *or* operator
@@ -138,7 +142,7 @@ var animal = "monkey";
 animal === "giraffe" || animal === "monkey"
 #+end_src
 
-d) Let's say we're searching for the book "Infinite Jest", and we try searching
+*d)* Let's say we're searching for the book "Infinite Jest", and we try searching
 for the word "jest" -- does the search work? Why not? Change =isMatch= again so
 that it does. The string method =indexOf= can help us here. Try the following to
 get an idea of what =indexOf= does:
@@ -149,3 +153,75 @@ get an idea of what =indexOf= does:
 "hello, world".indexOf(", w");
 "hello, world".indexOf("chimpanzee");
 #+end_src
+** Exercise 4: Don't Repeat Yourself (DRY)
+
+*a)* You have probably made several calls to ~setTableBody~ at this point, and
+ have probably noticed that it was necessary to supply the array of keys as the
+ second argument each time -- this is annoying. Let's fix it! First, create a
+ new function called ~updateTable~.
+
+ Look at your previous calls to ~setTableBody~ -- of the parameters that you
+ have passed to this function, which parameter has changed and which parameter
+ has stayed the same? Your new ~updateTable~ function should only take /one/
+ argument -- the one that has changed between calls.
+
+*b)* Instead of calling ~setTableBody~ multiple times with arguments that don't
+change, we'll /wrap/ calls to ~setTableBody~ with ~updateTable~ so that the
+unchanging arguments can be provided *once*, and we can focus on the arguments
+that /do/ change. Consider the following example:
+
+#+begin_src javascript
+function add(x, y) {
+  return x + y;
+}
+// Let's say we find ourselves adding 10 frequently to some other number:
+add(10, 17);
+add(10, 3);
+add(10, 4);
+// Why not have an addTen function?
+function addTen(x) {
+  return add(10, x);
+}
+#+end_src
+
+Call ~setTableBody~ inside of ~updateTable~ and provide the unchanging arguments
+here. Afterwards, replace all of your previous calls to ~setTableBody~ with
+calls to ~updateTable~.
+** Exercise 5: Extended Table Functionality
+
+In Exercise 1 we told you that ~setTableBody~ accepted an array of row objects
+and an array of string key names to use to look up values from the row objects.
+In addition to strings, the second argument can also contain /objects/ -- this
+allows us to inject some additional functionality into the table -- specifically
+where formatting is concerned. Let's revisit the example in Exercise 1 and see
+how this works:
+
+#+begin_src javascript
+var objects = [{a: "Hello", b: "World"}, {a: "Dog", b: "Cat"}, {a: "Orange", b: "Banana"}];
+function formatA(x) {
+  return x + "!";
+}
+
+function formatB(x) {
+  return x.toUpperCase();
+}
+setTableBody(objects, [{key: "a", format: formatA},
+                       {key: "b", format: formatB}]);
+#+end_src
+
+By providing a formatting function, we can alter the way the data /appears/
+without altering the data itself.
+
+*a)* Inside of your ~updateTable~ function from the last exercise, declare a new
+ function ~formatPrice~ that prefixes the price with a dollar sign (hint: see
+ ~formatA~ above for an example of how to do this); then, format the ~price~
+ column of each book.
+
+*b)* Pick one of the authors of the books and create a formatting function that
+ replaces that author's name with your own.
+
+*c)* ~setTableBody~ can also take a function as a third argument, that, when
+  provided, will be called whenever a row is clicked. This function should take
+  two arguments: ~book~ and ~row~. Declare this function inside of ~updateTable~
+  and pass it as the third argument to ~updateTable~. For now, just
+  ~console.log~ the book object (first parameter) inside of the function.
