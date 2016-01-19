@@ -4,65 +4,45 @@
 
 Get as far through the warmup exercises as you can.
 
-* [[http://codepen.io/jlehman/pen/mVqrmw/?editors=001][Project 1: Book Store]]
+* [[http://codepen.io/jlehman/pen/mVqrmw/?editors=001][Project: Book Store]]
 
 ** Exercise 1: Building a Table
 
-The Book Store project includes a number of helper functions for constructing a
-table of books. Let's explore some of these functions to see how they work.
+This project includes a number of helper functions for constructing a table of
+books and adding functionality. Let's explore some of this functionality through
+experimentation!
 
-*a)* Let's start by exploring the dataset that we'll be working with. In the
+*** What is the ~bookStore~?
+
+Let's start by exploring the dataset that we'll be working with. In the
 =INITIALIZATION= section of the project you'll see ~var bookStore =
 generateBookStore()~. ~generateBookStore~ is a function that generates the books
+<<<<<<< 1d1b4075f2f7ca7cce5376f21d17a9170942ac8b
 that we'll be working with. Open a console and enter the following *into codepen*:
+=======
+that we'll be working with. Enter the following in *codepen* beneath ~EXERCISE 1
+CODE GOES HERE~:
+>>>>>>> tweaks
 
 #+begin_src javascript
 console.log("The books are:", bookStore);
 console.log("The length of the bookStore is:", bookStore.length);
 #+end_src
 
-We can use ~console.log~ to see what's happening inside our programs. To see
-what was logged, open a console:
-
-#+CAPTION: How to open a console
-[[./img/open-console.png]]
-
-What kind of data structure is ~bookStore~? How many books does it contain? What
-kind of data structure is each book? Make sure to interact with the logged
-output. You should see something like the following:
+Now open up a console and see what was logged. You should see something like the
+following:
 
 #+CAPTION: Sample output
 [[./img/sample-output-1a.png]]
 
-*b)* A table consists of /rows/ and /columns/. Usually a /header/ will be the
-first row, and will indicate what the contents of each column are. A JavaScript
-(JS) function has been provided to work with the header of the table called
-~setTableHeader~. It takes one argument -- an array of strings that will be
-turned into header names. Try entering the following in your code:
+What kind of data structure is ~bookStore~? How many books does it contain? What
+kind of data structure is each book?
 
-#+begin_src javascript
-setTableHeader([]);
-setTableHeader(["Hello"]);
-setTableHeader(["Hello", "World"]);
-#+end_src
+*** Creating the Table of Books
 
-You've already seen what a single book object looks like. Change the call to
-~setTableHeader~ to contain the appropriate header values based the keys present
-in each book. Try playing with the order of the header strings -- does the order
-matter?
+A table consists of /rows/ and /columns/. Usually a /header/ will be the
+first row, and will indicate what the contents of each column are.
 
-*c)* Now that we have a header, it's time to add the content (the /rows/). A
-similar function for accomplishing this is provided: ~setTableBody~. This
-function accepts two arguments: an array of objects, and an array of strings
-that represent names of keys in each object. Let's play with it a bit:
-
-#+begin_src javascript
-var objects = [{a: "Hello", b: "World"}, {a: "Dog", b: "Cat"}, {a: "Orange", b: "Banana"}];
-setTableHeader(["A", "B"]);
-setTableBody(objects, ["a", "b"]);
-#+end_src
-
-Use ~setTableBody~ to display a table of books.
 
 ** Exercise 2: Set up Search
 
