@@ -1,6 +1,8 @@
 #+TITLE: Intro to JS Exercises
 
-* Warmup:
+* [[http://codepen.io/jlehman/pen/GoOMGz?editors=001][Warmup]]
+
+Get as far through the warmup exercises as you can.
 
 * [[http://codepen.io/jlehman/pen/mVqrmw/?editors=001][Project 1: Book Store]]
 
