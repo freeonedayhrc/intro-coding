@@ -64,6 +64,13 @@ from the console. You'll have to log their output to work with them.
 
 [[./img/codepen-console.gif]]
 
+** Errors
+
+Errors happen. Codepen will show a little red exclamation point in the lower
+right that can be clicked to help troubleshoot the error.
+
+[[./img/codepen-errors.gif]]
+
 * Getting Help
 
 # ** Screenshots

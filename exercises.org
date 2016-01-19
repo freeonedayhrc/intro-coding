@@ -132,37 +132,61 @@ When everything is working, you should see something like this:
 
 ** Exercise 2: Set up Search
 
-#+begin_src javascript
-byId("search-button").addEventListener('click', function() {
-  var query = byId("search-input").value
-  // Let's make some searching happen.
-});
-#+end_src
+Open the console, enter some text in the search books field, and press the
+search button. You should see something like this:
 
-There's a function in the ~BOOK STORE: Searching~ section called ~searchBooks~
-that, given a query, searches books. Currently ~searchBooks~ does a really bad
-job; if the query is an empty string (nothing input in the search bar) has been
-entered, it'll return all the books. If /anything/ is entered, it'll return *an
-empty array* indicating that there are no matches. Making the search work better
-is the subject of the next exercise -- first, let's hook up the search button to
-perform the search (even though the search isn't very good yet) when it is
-clicked.
+[[./img/ex2-search-console.png]]
 
-*a)* ~searchBooks~ takes a single argument -- a query to search books against --
-and returns a *new array of books*. You can experiment with ~searchBooks~ like so:
+This is the code that makes this happen:
 
 #+begin_src javascript
-console.log("The result of the search is: ", searchBooks(query));
+function shouldPerformSearch(query) {
+  console.log("You clicked the search button! The query is:", query);
+  // ~~ EXERCISE 2 CODE GOES HERE ~~
+}
 #+end_src
 
-Try adding the above line and pressing the search button both with /nothing/
-entered in the search field, and with /anything/ entered in the search field.
-What happens?
+Whenever the blue *Search* button is clicked, the ~shouldPerformSearch~ function
+is called. Given the name, we should expect that this function performs a
+search, but right now it doesn't do much of anything!
 
-*b)* Instead of logging the result, we want the table to update based on the
-output of ~searchBooks~. What have we used so far that allows us to set the body
-of the table based on an array of books? Use that function to update the table
-whenever the search button is pressed.
+Right below ~shouldPerformSearch~ is the function ~searchBooks~.
+
+#+begin_src javascript
+function searchBooks(query) {
+  // body omitted
+}
+#+end_src
+
+In the next exercise we'll be focusing on making ~searchBooks~ perform a decent
+search; for now, let's just see how it works. Notice how ~searchBooks~ takes a
+single argument, ~query~? Instead of logging the ~query~ itself, let's see what
+happens when we call ~searchBooks~ with the query. Change ~shouldPerformSearch~
+to look like this:
+
+#+begin_src javascript
+function shouldPerformSearch(query) {
+  console.log("Your search returned:", searchBooks(query));
+}
+#+end_src
+
+What happens when you press the search button without any text in the field?
+What about when there is text?
+
+[[./img/log-basic-search.gif]]
+
+Clearly, the search needs some work. As mentioned before, we'll fix this later;
+for now, we can just pretend that it works well and use it regardless.
+
+*Exercises:*
+
+a) Currently, the search either returns an empty array, or an array of books.
+Use this information to update the table (~drawTable~) with the result of
+~searchBooks~.
+
+b) What happens when you use the search button now? Like before, try it with no
+text entered and with text entered. Given the result we saw earlier, does this
+make sense?
 
 ** Exercise 3: Implement a Search Algorithm
 
