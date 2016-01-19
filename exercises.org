@@ -14,7 +14,7 @@ table of books. Let's explore some of these functions to see how they work.
 *a)* Let's start by exploring the dataset that we'll be working with. In the
 =INITIALIZATION= section of the project you'll see ~var bookStore =
 generateBookStore()~. ~generateBookStore~ is a function that generates the books
-that we'll be working with. Open a console and enter the following **into codepen**:
+that we'll be working with. Open a console and enter the following *into codepen*:
 
 #+begin_src javascript
 console.log("The books are:", bookStore);
