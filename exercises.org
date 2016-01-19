@@ -35,10 +35,10 @@ var tableConfig = {
 drawTable([], tableConfig);
 #+end_src
 
-+ ~tableConfig~ is a variable that holds an ~object~
++ ~tableConfig~ is a variable that holds an *object*
   + Its keys are ~headers~ and ~rowKeys~
-+ ~drawTable~ is a function that takes an array of /rows/, and a configuration
-  + The /rows/ are an empty array currently
++ ~drawTable~ is a function that takes an array of *rows*, and a configuration
+  + The rows are an empty array currently
   + The configuration is ~tableConfig~
 
 Instead of passing an empty array to ~drawTable~ (the first argument), let's try
@@ -46,7 +46,7 @@ some sample data. Add the following variable ~food~ and update ~drawTable~ like
 so:
 
 #+begin_src javascript
-var food = [
+var foods = [
   {name: "apple", type: "fruit", delicious: "yes"},
   {name: "ribeye", type: "meat", delicious: "yes"},
   {name: "fruitcake", type: "baked goods", delicious: "not really"}
@@ -58,13 +58,36 @@ If everything is working, you should see this:
 
 [[./img/food-table-no-columns.png]]
 
+Something happened! Now we have multiple rows in our table...but there's no
+information. Update the ~tableConfig~ to look like this:
+
+#+begin_src javascript
+var tableConfig = {
+  headers: ["Food"],
+  rowKeys: ["name"]
+}
+#+end_src
+
+[[./img/food-table.png]]
+
+This is looking better! Let's keep going with it:
+
+*Exercises:*
+
+a) Update the ~headers~ and ~rowKeys~ to reflect the food's *type* and
+*deliciousness*.
+
+b) Add another key-value pair to each food object (/e.g./ organic, vegan,
+gluten-free, color, etc.).
+
+c) Add two more food objects the the array.
 
 *** 1.2 What is the ~bookStore~?
 
-Let's explor the dataset that we'll be working with. In the =INITIALIZATION=
+Let's explore the dataset that we'll be working with. In the =INITIALIZATION=
 section of the project you'll see ~var bookStore = generateBookStore()~.
 ~generateBookStore~ is a function that generates the books that we'll be working
-with. Enter the following in *codepen* beneath ~EXERCISE 1 CODE GOES HERE~:
+with. Enter the following in *codepen*:
 
 #+begin_src javascript
 console.log("The books are:", bookStore);
@@ -74,11 +97,33 @@ console.log("The length of the bookStore is:", bookStore.length);
 Now open up a console and see what was logged. You should see something like the
 following:
 
-#+CAPTION: Sample output
 [[./img/sample-output-1a.png]]
 
-What kind of data structure is ~bookStore~? How many books does it contain? What
-kind of data structure is each book?
+It should be apparent at this point that the ~bookStore~ variable is in fact an
+*array* of *objects*, where each object represents a *book* that has this
+structure:
+
+#+begin_src javascript
+{
+  author: "Kingsley Amis",
+  category: "self help",
+  price: 14.4,
+  title: "Lucky Jim"
+}
+#+end_src
+
+*Exercises:*
+
+a) Pass the ~bookStore~ into ~drawTable~ as the first argument. How many rows
+are there now?
+
+b) Clear out the ~headers~ and ~rowKeys~ arrays in ~tableConfig~ from the
+previous exercise -- add appropriate values for books based on the structure
+shown above.
+
+When everything is working, you should see something like this:
+
+[[./img/working-book-store-table.png]]
 
 ** Exercise 2: Set up Search
 
