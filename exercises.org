@@ -187,7 +187,7 @@ function addTen(x) {
 Call ~setTableBody~ inside of ~updateTable~ and provide the unchanging arguments
 here. Afterwards, replace all of your previous calls to ~setTableBody~ with
 calls to ~updateTable~.
-** Exercise 5: Extended Table Functionality
+** Exercise 5: Extending Table Functionality
 
 In Exercise 1 we told you that ~setTableBody~ accepted an array of row objects
 and an array of string key names to use to look up values from the row objects.

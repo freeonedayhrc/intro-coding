@@ -1,0 +1,283 @@
+#+TITLE: Intro to JS
+#+AUTHOR: Josh Lehman
+#+EMAIL: jlehman@fastmail.com
+#+REVEAL_EXTRA_CSS: ./presentation.extra.css
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+OPTIONS: toc:nil reveal_slide_number:nil num:nil
+#+REVEAL_TRANS: linear
+
+* Overview
+** What is Programming?
+
++ Programming /is/ the act of writing computer code
++ Programming is /about/ building and working with ideas
+
+** What to Expect
+
++ You will be writing *code*
+  + Not HTML or CSS -- /JavaScript/
++ Working at a high level of abstraction
+  + Helper functions provided
++ A complete codebase
+  + No libraries!
+
+** What not to Expect
+
+We cannot teach you everything we want to in four hours -- there's a lot to learn.
+
+** Why JavaScript?
+
+Why not C, C++, Ruby, Perl, Python, Julia, Erlang, Haskell, Clojure, Scheme,
+Java, PHP, C#, or Swift?
+
+There are lots of great languages, but:
+
++ JS is one of the [[http://stackoverflow.com/research/developer-survey-2015#tech-lang][the most popular languages in the world]]
++ JS runs everywhere!
+  + Browsers, servers, microcontrollers, iOS, Android, and more
++ JS is /expressive/
+  + Can represent ideas in natural/interesting ways
+
+* Data
+
+"Data" is what our programs store, manipulate, display and compute. Data is the
+/subject/ of our programs.
+
+** Primitives: Numbers
+
+#+begin_src javascript
+1 + 3; // we can use operators to perform addition,
+7 * 4 / 3 - 17; // multiplication, divisiion and subtraction
+Math.floor(7.682); // There are many mathematical functions
+#+end_src
+
++ Programming is /not/ all about math
+  + But math is useful
++ Order of operations matters (PEMDAS)
+
+** Primitives: Strings
+
+#+begin_src javascript
+"Hello, World!"; // a string
+"Java" + "Script"; // "concatenation" of two strings with the "+" operator
+"yay strings".length; // the length of the string can be computed
+"make me uppercase".toUpperCase(); // There are many ways to transform text
+#+end_src
+
++ Strings are used to represent text
++ We use double quotes to represent strings
+  + Single quotes work too
++ There are [[http://www.w3schools.com/js/js_string_methods.asp][lots]] of useful operations for working with strings
+
+** Primitives: Booleans
+
+#+begin_src javascript
+true; // this is true
+false; // this is false
+true && false // logical "and"
+true || false // logical "or"
+!true // logical "not"
+1 > 2;
+3 <= 1000000;
+4 === 4;
+"hello".length >= 5;
+#+end_src
+
++ Booleans are how we talk about /logic/
++ *Examples*:
+  + /As long as/ some condition is /true/, keep doing something
+  + /If/ some condition is /true/, do something. /Otherwise/, do something else.
++ The results of /comparisons/ are booleans
+
+** Variables
+
+#+begin_src javascript
+var ten = 10; // create variable named `ten` and assign 10 to it.
+var myName; // declare a variable without assigning anything
+// assign "Josh Lehman" to the existing variable `myName`
+myName = "Josh Lehman";
+// variable names can be used to reference their values
+myName.length > ten;
+ten + 5;
+ten === 10;
+ten = ten + 5; // reassignment
+ten === 10;
+#+end_src
+
++ ~var~ is used to *create* a new variable
+  + The ~=~ sign is called the /assignment operator/
++ Variables are used:
+  + To associate /names/ with /values/
+  + As storage locations
++ Variables can be /reassigned/
+
+** Compound Data: Objects
+
+#+begin_src javascript
+var josh = {
+  firstName: "Josh", // key value pairs are separated by commas!
+  lastName: "Lehman",
+  age: 26,
+  gender: "male",
+  programmer: true
+}
+var ageKey = "age";
+josh.firstName;
+josh["firstName"];
+josh[ageKey];
+josh.ageKey; // doesn't work! interpreted as josh["ageKey"];
+#+end_src
+
++ Used to talk about entities
++ Comprised of /key,value/ pairs
+  + /keys/ are usually represented as strings
+  + /e.g./ The value of ~josh~ under key ~age~ is 26.
+  + Combine many other kinds of data into one (hence, *compound data*)
+
+** Compound Data: Arrays
+
+#+begin_src javascript
+// Elements in arrays are separated by commas!
+var luckyNumbers = [12, 19, 7, 3, 28];
+var animals = ["monkey", "giraffe", "cat", "dog", "platypus"];
+var people = [
+  {name: "Ben Bitdiddle", age: 27},
+  {name: "Eva Lu Ator", age: 32},
+  {name: "Alyssa P. Hacker", age: 20},
+  {name: "Louis Reasoner", age: 54}
+];
+animals[0]; // "monkey"
+people[2]; // {name: "Alyssa P. Hacker", age: 20}
+#+end_src
+
++ Arrays are used to represent /many/ things
+  + The elements of arrays can be /anything/: numbers, strings, objects, etc.
++ Usually used to refer to many similar kinds of data
+
+** All Together Now
+
+#+begin_src javascript
+var josh = {
+  name: {
+    first: "Joshua",
+    middle: "Adam",
+    last: "Lehman"
+  },
+  age: 26,
+  gender: "male",
+  programmer: true,
+  favoriteTVShows: ["Fargo", "Breaking Bad", "Battlestar Galactica"],
+  pets: [{type: "cat", name: "Cheesus", age: 3, biochipped: true, color: "orange"}]
+}
+josh.name.middle; // "Adam"
+josh.favoriteTVShows[0]; // "Fargo"
+josh.pets[0].name; // "Cheesus"
+#+end_src
+
+* Functions & Control Flow
+
+** What are Functions?
+
+#+begin_src javascript
+// "definition" of function named square that accepts one argument
+function square(x) {
+  // Inside of the curly braces is called the "body"
+  return x * x; // return specifies the "result"
+}
+// "invocation" of square function
+square(5); // "invoking" is also known as "calling"
+square(square(5));
+#+end_src
+
++ Functions specify instructions to accomplish some task
++ Usually have a /name/
++ Usually have /arguments/ (the stuff inside the parenthesis)
++ Usually ~return~ a result
+
+** More on Functions
+
+#+begin_src javascript
+// Functions frequently have multiple arguments (separated by commas)
+function add(a, b) {
+  return a + b;
+}
+add(1, 2); // a: 1, b: 2, 1 + 2 => 3
+
+function divide(x, y) {
+  return x / y;
+}
+// The positions of arguments matters, not the names:
+divide(9, 3) // x: 9, y: 3, 9 / 3 => 3
+divide(3, 9) // x: 3, y: 9, 3 / 9 => 0.333333333
+#+end_src
+
++ Arguments are just named placeholders!
+  + The values are supplied when the function is /invoked/ (or "called")
+
+** If & Else Statements
+
+#+begin_src javascript
+function canEnterBar(person) {
+  // the "condition" is what comes between the parenthesis
+  // a condition should evaluate to true or false
+  if (person.age >= 21) {
+    // executed if condition is true -- this is called the "consequent"
+    return "You may enter, " + person.name + ".";
+  } else {
+    // executed if condition is false -- called the "alternate"
+    return "Go home, " + person.name + ".";
+  }
+}
+var louis = {name: "Louis Reasoner", age: 54};
+var alyssa = {name: "Alyssa P. Hacker", age: 20};
+canEnterBar(louis); // "You may enter, Louis Reasoner."
+canEnterBar(alyssa); // "Go home, Alyssa P. Hacker."
+#+end_src
+
++ An ~if~ does not need to have an ~else~ following
+  + An ~else~ MUST come after an ~if~
++ *NOTE:* The ~return~ keyword causes the function to exit!
+
+** Checking multiple conditions
+
+#+begin_src javascript
+function howsTheWeather(temperature) {
+  if (temperature >= 90) {
+    return "It's way too hot outside."
+  } else if (temperature >= 68) {
+    return "It's pretty nice outside."
+  } else if (temperature >= 32) {
+    return "Meh. It's kind of cold."
+  } else {
+    return "It's way too cold outside."
+  }
+}
+howsTheWeather(72); // "It's pretty nice outside."
+howsTheWeather(0); // "It's way too cold outside."
+#+end_src
+
++ Test any number of conditions with ~else if~
++ ~else if~ must follow an ~if~
++ If there's an ~else~, it must be at the end
+
+** Functions are Powerful
+
+#+begin_src javascript
+function timesFive(x) { return x * 5; }
+function subtractSeven(x) { return x - 7; }
+
+function compose(f, g) {
+  return function(x) {
+    return f(g(x));
+  }
+}
+
+var composition = compose(timesFive, subtractSeven);
+// f: timesFive, g: subtractSeven, x: 8, timesFive(subtractSeven(8)) => 5
+composition(8)
+#+end_src
+
++ Functions can be:
+  + Passed as arguments
+  + Returned from functions
++ This is what makes JS powerful
