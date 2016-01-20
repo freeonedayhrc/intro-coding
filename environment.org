@@ -30,6 +30,12 @@ keyboard shortcut. We'll open and close the console frequently.
 
 * Working with the Console
 
+The *console* is a development tool that is used to quickly evaluate JavaScript
+code and debug programs (at least this is how we will be using it -- there are
+other uses too!). A console can be opened in /all/ web pages. Each browser has
+its own console, and they all behave slightly differently. You can read more
+about Chrome's console [[https://developers.google.com/web/tools/chrome-devtools/debug/console/console-ui?hl=en][here]].
+
 ** Entering Code
 
 Code can be entered directly into the console:
@@ -50,6 +56,11 @@ Arrays and objects can be expanded and viewed:
 [[./img/expanding-data-console.gif]]
 
 * Working in [[http://codepen.io][Codepen]]
+
+*Codepen* is an online tool that can be used to write JavaScript, HTML and CSS
+right from inside of your browser. No files, text editors or knowledge of how to
+set up a working development environment is required. We'll be using Codepen for
+all of our exercises and the project. You can read more about Codepen [[http://codepen.io/about/][here]].
 
 ** Layout
 
