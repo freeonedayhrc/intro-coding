@@ -70,11 +70,3 @@ Errors happen. Codepen will show a little red exclamation point in the lower
 right that can be clicked to help troubleshoot the error.
 
 [[./img/codepen-errors.gif]]
-
-* Getting Help
-
-# ** Screenshots
-
-# Knowing how to take a screenshot is really helpful -- nearly all chat clients
-
-TODO
