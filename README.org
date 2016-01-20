@@ -1,30 +1,18 @@
 #+TITLE: Intro to JS
 #+AUTHOR: Josh Lehman
-#+EMAIL: jlehman@fastmail.com
+#+EMAIL: admissions@hackreactor.com
 #+REVEAL_EXTRA_CSS: ./presentation.extra.css
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/reveal.js/3.0.0/
 #+OPTIONS: toc:nil reveal_slide_number:nil num:nil
 #+REVEAL_TRANS: linear
 
-* Overview
+* Overview & Logistics
+
 ** What is Programming?
 
 + Programming /is/ the act of writing computer code
 + Programming is /about/ building and working with ideas
 + Programs are composed of /ideas/
-
-** What to Expect
-
-+ You will be writing *code*
-  + Not HTML or CSS -- /JavaScript/
-+ Working at a high level of abstraction
-  + Helper functions provided
-+ A complete codebase
-  + No libraries!
-
-** What not to Expect
-
-We cannot teach you everything we want to in four hours -- there's a lot to learn.
 
 ** Why JavaScript?
 
@@ -39,10 +27,44 @@ There are lots of great languages, but:
 + JS is /expressive/
   + Can represent ideas in natural/interesting ways
 
+** Expectations
+
++ You will be writing actual *code*
++ High level of abstraction
+  + Helper functions provided
++ A complete codebase
+  + No libraries!
++ Cannot learn to code in four hours
+  + /Can/ experience the /process/ of coding
+
+** Class Format
+
++ The lecture is meant to be /interactive/
+  + Follow along with examples in lecture
+  + *Do not hesitate to ask for help with /anything/*
++ Two short lectures and accompanying exercises
++ Two-part project
++ Exercises & Project will be discussed
+
+** Topics Covered
+
++ *Data*: Primitives & Compound Data
+  + Numbers, Strings, Booleans, Arrays, Objects
+  + The /what/ of our programs
++ *Functions*: Building Blocks
+  + The /how/ of our programs
+  + Used to represent /ideas/
++ *Control Flow*: ~if~, ~else if~, ~else~
+  + The /logic/ in our programs
+  + Allows programs to make /decisions/ based on *data*
+
 * Data
 
 "Data" is what our programs store, manipulate, display and compute. Data is the
 /subject/ of our programs.
+
+*Question:* How can we represent characteristics of a *person* as data (/e.g./
+Facebook profile)?
 
 ** Primitives: Numbers
 
@@ -90,7 +112,7 @@ true || false // logical "or"
   + /If/ some condition is /true/, do something. /Otherwise/, do something else.
 + The results of /comparisons/ are booleans
 
-** Variables
+** Interlude: Variables
 
 #+begin_src javascript
 var ten = 10; // create variable named `ten` and assign 10 to it.
@@ -112,34 +134,47 @@ ten === 10;
   + As storage locations
 + Variables can be /reassigned/
 
+** Interlude: Equality
+
+#+begin_src javascript
+var name = "Josh";
+name === "Fred";
+name = "Fred";
+name === "Fred";
+#+end_src
+
+The ~=~ sign is the /assignment/ operator -- it /assigns/ what's on the right to
+what's on the right.
+
+We use ~===~ to /test for equality/.
+
 ** Compound Data: Objects
 
 #+begin_src javascript
-var josh = {
-  firstName: "Josh", // key value pairs are separated by commas!
-  lastName: "Lehman",
-  age: 26,
-  gender: "male",
-  programmer: true
-}
-var ageKey = "age";
-josh.firstName;
-josh["firstName"];
-josh[ageKey];
-josh.ageKey; // doesn't work! interpreted as josh["ageKey"];
+  var josh = {
+    name: { first: "Josh", last: "Lehman" }, // nesting is ok!
+    age: 26, // key-value pairs are separated with commas
+    gender: "male",
+    programmer: true
+  }
+  josh.age; // dot notation
+  josh.name.first;
+  josh["age"]; // bracket notation
+  josh["name"]["first"];
+  josh.name.first = "Joshua"; // we can reassign values!
 #+end_src
 
 + Used to talk about entities
 + Comprised of /key,value/ pairs
   + /keys/ are usually represented as strings
-  + /e.g./ The value of ~josh~ under key ~age~ is 26.
-  + Combine many other kinds of data into one (hence, *compound data*)
+  + Combine many kinds of data (hence, *compound*)
++ Access values by /key/:
+  + Dot Notation: ~josh.age~, Bracket Notation: ~josh["age"]~
 
 ** Compound Data: Arrays
 
 #+begin_src javascript
-// Elements in arrays are separated by commas!
-var luckyNumbers = [12, 19, 7, 3, 28];
+var luckyNumbers = [12, 19, 7, 3, 28]; // comma separated!
 var animals = ["monkey", "giraffe", "cat", "dog", "platypus"];
 var people = [
   {name: "Ben Bitdiddle", age: 27},
@@ -154,6 +189,7 @@ people[2]; // {name: "Alyssa P. Hacker", age: 20}
 + Arrays are used to represent /many/ things
   + The elements of arrays can be /anything/: numbers, strings, objects, etc.
 + Usually used to refer to many similar kinds of data
++ Elements are /indexed/ numerically from 0
 
 ** All Together Now
 
@@ -175,7 +211,22 @@ josh.favoriteTVShows[0]; // "Fargo"
 josh.pets[0].name; // "Cheesus"
 #+end_src
 
+** Recap
+
++ *Primitives* are the most basic data types
+  + Numbers, Strings, Booleans
++ *Variables* are named storage locations
++ *Objects* represent data with multiple characteristics
++ *Arrays* represent many pieces of data (usually similar)
+** Exercises
+
+Exercises covering this material can be found [[http://codepen.io/jlehman/pen/GoOMGz?editors=001][here]].
+
 * Functions & Control Flow
+
+/Functions/ allow us to represent a /task/ with a name and parameters.
+
+/Control Flow/ allows us to change the /execution/ of our programs with logic.
 
 ** What are Functions?
 
@@ -231,8 +282,8 @@ function canEnterBar(person) {
 }
 var louis = {name: "Louis Reasoner", age: 54};
 var alyssa = {name: "Alyssa P. Hacker", age: 20};
-canEnterBar(louis); // "You may enter, Louis Reasoner."
-canEnterBar(alyssa); // "Go home, Alyssa P. Hacker."
+canEnterBar(louis);
+canEnterBar(alyssa);
 #+end_src
 
 + An ~if~ does not need to have an ~else~ following
@@ -282,3 +333,11 @@ composition(8)
   + Passed as arguments
   + Returned from functions
 + This is what makes JS powerful
+** Recap
+
++ *Functions* describe how to perform a task given arguments (parameters)
+  + This keeps us from rewriting the same code over and over
++ *if, else if, else* allow our programs to make /decisions/ based on /data/
+** Exercises
+
+Exercises covering this material can be found [[http://codepen.io/jlehman/pen/adEZQQ?editors=001][here]].

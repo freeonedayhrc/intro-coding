@@ -5,11 +5,20 @@
 Before beginning, please familiarize yourself with the [[./environment.org][environment]] that we'll be
 using.
 
-* [[http://codepen.io/jlehman/pen/GoOMGz?editors=001][Warmup]]
+* Warmup Exercises
 
-Get as far through the warmup exercises as you can.
+If you get stuck on any of these, please do not hesitate to ask for help! The
+solutions will be covered in class after the alotted time.
 
-* [[http://codepen.io/jlehman/pen/mVqrmw/?editors=001][Project: Book Store]]
+** [[http://codepen.io/jlehman/pen/GoOMGz?editors=001][Part 1: Data]]
+
+These exercises cover the first half of lecture.
+
+** [[http://codepen.io/jlehman/pen/adEZQQ?editors=001][Part 2: Functions & Control Flow]]
+
+These exercises cover the second half of lecture.
+
+* [[http://codepen.io/jlehman/pen/mVqrmw/?editors=001][Book Store Part 1]]
 
 ** Exercise 1: Building a Table of Books
 
@@ -368,3 +377,10 @@ string, and false if not.
 
 b) Use ~containedWithin~ instead of ~beginsWith~ for your search. Does it work
 as you'd expect?
+
+
+* Book Store Part 2 (note: separate pen w/ shopping cart visible)
+
+** Exercise 4: Selecting Books to Buy
+** Exercise 5: Checkout Form & Validation
+** Exercise 6: Checking Out & Confirmation
