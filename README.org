@@ -1,10 +1,19 @@
-#+TITLE: Intro to JS
+#+TITLE: Intro to Coding
 #+AUTHOR: Josh Lehman
-#+EMAIL: admissions@hackreactor.com
-#+REVEAL_EXTRA_CSS: ./presentation.extra.css
+#+EMAIL: freeoneday@hackreactor.com
+#+CREATOR: Hack Reactor
+#+REVEAL_EXTRA_CSS: ./assets/presentation.extra.css
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/reveal.js/3.0.0/
 #+OPTIONS: toc:nil reveal_slide_number:nil num:nil
 #+REVEAL_TRANS: linear
+
+#+BEGIN_HTML
+<div id="logo-container">
+  <a href="http://hackreactor.com/remote-beta">
+    <img id="logo-image" src="assets/hr-logo.png">
+  </a>
+</div>
+#+END_HTML
 
 * Overview & Logistics
 

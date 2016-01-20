@@ -1,0 +1,53 @@
+.reveal p {
+  text-align: left;
+  line-height: 1.1;
+  color: #6b3362;
+}
+
+.reveal li {
+  text-align: left;
+  line-height: 1.1;
+  color: #6b3362;
+}
+
+.reveal {
+  background-color: #ecf3ec;
+  color: #6b3362;
+  font-family: Triplicate T4p;
+}
+
+.reveal h1 {
+  font-family: Triplicate C4p;
+  color: #6b3362;
+}
+
+.reveal h2 {
+  font-family: Triplicate C4p;
+  color: #6b3362;
+}
+
+.reveal h3 {
+  font-family: Triplicate C4p;
+  color: #6b3362;
+}
+
+.reveal pre {
+  font-family: Triplicate T4c;
+}
+.reveal code {
+  font-family: Triplicate T4c;
+}
+
+#logo-container {
+  position: absolute;
+  top: 0;
+  left: -100px;
+}
+
+#logo-image {
+  max-width: 150px;
+}
+
+#sec-title-slide h2 {
+  font-size: 48px;
+}
