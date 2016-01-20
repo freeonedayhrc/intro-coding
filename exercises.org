@@ -180,9 +180,10 @@ for now, we can just pretend that it works well and use it regardless.
 
 *Exercises:*
 
-a) Currently, the search either returns an empty array, or an array of books.
-Use this information to update the table (~drawTable~) with the result of
-~searchBooks~.
+a) Currently, the search either returns an empty array, or an array of books
+(this should make sense -- either the search will match nothing, some of the
+books, or all of the books). Use this information to update the table
+(~drawTable~) with the result of ~searchBooks~.
 
 b) What happens when you use the search button now? Like before, try it with no
 text entered and with text entered. Given the result we saw earlier, does this
@@ -190,61 +191,73 @@ make sense?
 
 ** Exercise 3: Implement a Search Algorithm
 
+Implementing a search algorithm sounds like a daunting task. Whenever faced with
+a problem that seems large, the best strategy is to break it down into a number
+of smaller, more manageable subproblems. Instead of concerning ourselves with
+searching /all/ of the books, and /all/ of the keys of each book, let's take a
+step back and think about some ways in which a search can work.
+
+*** 3.1 Searching the Beginning of Strings
+
+One way to perform a search against strings is to compare the /beginning/ of the
+string with some other string that we're searching for.
+
+Let's say we've got a ~"chimpanzee"~ string, and we're trying to see if it
+begins with ~"chimp"~.
+
+#+begin_src javascript
+var s = "chimpanzee";
+var query = "chimp";
+#+end_src
+
+JavaScript strings have a method called ~substring~ that takes a starting index
+and an ending index as arguments, and returns the string from ~start~ up to
+~end~ (does not include the end index). Here's an example:
+
+#+begin_src javascript
+// start: 0, end: 3
+"chimpanzee".substring(0, 3); // "chi"
+// start: 0, end: 5
+"chimpanzee".substring(0, 5); // "chimp"
+#+end_src
+
+Enter the following into a console (any console is fine) and note what happens:
+
+#+begin_src javascript
+var s = "chimpanzee";
+var query1 = "chimp";
+var query2 = "chip";
+s.substring(0, query1.length) === query1;
+s.substring(0, query2.length) === query2;
+#+end_src
+
+*Exercises*:
+
+a) Use the property demonstrated above to complete the following function:
+
+#+begin_src javascript
+function beginsWith(s, query) {
+  return // your code here
+}
+beginsWith("chimpanzee", "chimp"); // true
+beginsWith("chimpanzee", "chip"); // false
+#+end_src
+
+When you have it working, copy this function to *codepen* where it says:
+=EXERCISE 3.1 CODE GOES HERE=
+
+b) Look in *codepen* for the section of code in ~searchBooks~ that looks like this:
+
 #+begin_src javascript
 function isMatch(book) {
-  return false; // this is a really bad search
+  // ~~ EXERCISE 3 CODE GOES HERE ~~
+  return false; // considers NO book a match
 }
 #+end_src
 
-The ~isMatch~ function will be called on each book in the ~bookStore~, and
-should *return* ~true~ if that book is a match, and ~false~ if not. We'll now
-explore a couple of techniques for implementing the search algorithm. When
-implementing this function, don't forget ~return~ true or false!
+Instead of returning ~false~, return ~beginsWith(book.title, query)~. What
+happens when you run your search? Try searching for "Lucky" -- does it work?
 
-*a)* One way to search our books would be to check if the beginning of the book's
-title (=book.title=) was equal to our =query=. JavaScript strings have a method
-=substring= that takes two arguments: =begin= and =end=. Try the following at a
-console:
-
-#+begin_src javascript
-"hello, world".substring(0,3);
-"hello, world".substring(3,7);
-#+end_src
-
-Given that we can determine the length of our =query= with =query.length=, and
-can check equality with ~===~, how can we use =substring= to determine if the
-beginning of the book's title matches the =query=?
-
-*b)* How does your =isMatch= function fare with different cases? Change =isMatch=
-to be case-insensitive. Hint: try a search for "javascript lowercase string" in
-Google.
-
-*c)* Modify =isMatch= to search against a different key in the =book= object (e.g.
-author). Having to modify the code itself to search against a different field
-doesn't seem like a very good solution; ideally we would like to be able to
-search by title /or/ author -- fix this by using the logical *or* operator
-(~||~) to check against multiple keys at once. Try the following at a console to
-get an idea of how ~||~ works:
-
-#+begin_src javascript
-true || true
-true || false
-false || false
-var animal = "monkey";
-animal === "giraffe" || animal === "monkey"
-#+end_src
-
-*d)* Let's say we're searching for the book "Infinite Jest", and we try searching
-for the word "jest" -- does the search work? Why not? Change =isMatch= again so
-that it does. The string method =indexOf= can help us here. Try the following to
-get an idea of what =indexOf= does:
-
-#+begin_src javascript
-"hello, world".indexOf("hello");
-"hello, world".indexOf("wor");
-"hello, world".indexOf(", w");
-"hello, world".indexOf("chimpanzee");
-#+end_src
 ** Exercise 4: Don't Repeat Yourself (DRY)
 
 *a)* You have probably made several calls to ~setTableBody~ at this point, and
