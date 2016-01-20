@@ -47,8 +47,9 @@ drawTable([], tableConfig);
   + The configuration is ~tableConfig~
 
 Instead of passing an empty array to ~drawTable~ (the first argument), let's try
-some sample data. Add the following variable ~food~ and update ~drawTable~ like
-so:
+some sample data.
+
+Add the variable ~foods~:
 
 #+begin_src javascript
 var foods = [
@@ -56,7 +57,12 @@ var foods = [
   {name: "ribeye", type: "meat", delicious: "yes"},
   {name: "fruitcake", type: "baked goods", delicious: "not really"}
 ];
-drawTable(food, tableConfig);
+#+end_src
+
+And then update ~drawTable~ like so:
+
+#+begin_src javascript
+drawTable(foods, tableConfig);
 #+end_src
 
 If everything is working, you should see this:
@@ -182,8 +188,9 @@ for now, we can just pretend that it works well and use it regardless.
 
 a) Currently, the search either returns an empty array, or an array of books
 (this should make sense -- either the search will match nothing, some of the
-books, or all of the books). Use this information to update the table
-(~drawTable~) with the result of ~searchBooks~.
+books, or all of the books). Inside of ~shouldPerformSearch~, call the
+~drawTable~ function with the result of ~searchBooks~ to update the table
+whenever the search button is clicked.
 
 b) What happens when you use the search button now? Like before, try it with no
 text entered and with text entered. Given the result we saw earlier, does this
@@ -258,75 +265,106 @@ function isMatch(book) {
 Instead of returning ~false~, return ~beginsWith(book.title, query)~. What
 happens when you run your search? Try searching for "Lucky" -- does it work?
 
-** Exercise 4: Don't Repeat Yourself (DRY)
+c) Change ~isMatch~ to work on the book's ~author~ instead of its ~title~.
 
-*a)* You have probably made several calls to ~setTableBody~ at this point, and
- have probably noticed that it was necessary to supply the array of keys as the
- second argument each time -- this is annoying. Let's fix it! First, create a
- new function called ~updateTable~.
+*** 3.2 Interlude: How does it work?
 
- Look at your previous calls to ~setTableBody~ -- of the parameters that you
- have passed to this function, which parameter has changed and which parameter
- has stayed the same? Your new ~updateTable~ function should only take /one/
- argument -- the one that has changed between calls.
-
-*b)* Instead of calling ~setTableBody~ multiple times with arguments that don't
-change, we'll /wrap/ calls to ~setTableBody~ with ~updateTable~ so that the
-unchanging arguments can be provided *once*, and we can focus on the arguments
-that /do/ change. Consider the following example:
+Now that you have search working, let's take a moment to reflect on how it
+works.
 
 #+begin_src javascript
-function add(x, y) {
-  return x + y;
-}
-// Let's say we find ourselves adding 10 frequently to some other number:
-add(10, 17);
-add(10, 3);
-add(10, 4);
-// Why not have an addTen function?
-function addTen(x) {
-  return add(10, x);
+function searchBooks(query) {
+  // 1.
+  if (query === "") {
+    return bookStore;
+  }
+  // 3.
+  function isMatch(book) {
+    return beginsWith(book.title, query);
+  }
+  // 2.
+  return filter(bookStore, isMatch);
 }
 #+end_src
 
-Call ~setTableBody~ inside of ~updateTable~ and provide the unchanging arguments
-here. Afterwards, replace all of your previous calls to ~setTableBody~ with
-calls to ~updateTable~.
-** Exercise 5: Extending Table Functionality
+1. The ~if~ statement checks to see if the query is the empty string. If it is,
+   it returns all books in the store (~bookStore~).
+2. ~filter~ is a function that accepts two arguments: an array, and a function.
+   ~filter~ will pass each element in the array to the function, and "keep" only
+   the ones that the function returns ~true~ for. It /filters/ out everything
+   that the function returns false for.
+3. ~isMatch~ is the function that is supplied to ~filter~ -- it accepts one
+   argument (in this case we've named it ~book~, since that's what's contained
+   in ~bookStore~), and returns ~true~ if the book's title ~beginsWith~ the
+   ~query~, and ~false~ otherwise.
 
-In Exercise 1 we told you that ~setTableBody~ accepted an array of row objects
-and an array of string key names to use to look up values from the row objects.
-In addition to strings, the second argument can also contain /objects/ -- this
-allows us to inject some additional functionality into the table -- specifically
-where formatting is concerned. Let's revisit the example in Exercise 1 and see
-how this works:
+*** 3.3 Improved Search
+
+There are two glaring deficiencies in our search algorithm.
+
+1. Try searching for "lucky" (note: you'll need to make sure you're searching on
+   ~book.title~ again) -- you should get /no results/. The first book is called
+   "Lucky Jim"; why isn't this one of the results?
+2. Currently we can only search on one aspect of a book at a time -- what if we
+   wanted to search on ~title~, ~author~, /or/ ~category~ without making changes
+   to our code?
+
+*Exercises:*
+
+a) The problem in point (1) above has to do with /case sensitivity/: "L" and "l"
+are two different characters, and the string "Lucky" is not the same as the
+string "lucky". What we need to do is ensure that, for the sake of our search,
+the entire string is the same /case/.
+
+Try the following at any console:
 
 #+begin_src javascript
-var objects = [{a: "Hello", b: "World"}, {a: "Dog", b: "Cat"}, {a: "Orange", b: "Banana"}];
-function formatA(x) {
-  return x + "!";
-}
-
-function formatB(x) {
-  return x.toUpperCase();
-}
-setTableBody(objects, [{key: "a", format: formatA},
-                       {key: "b", format: formatB}]);
+"heLLo WoRld".toLowerCase();
+"HEllO WorLD".toUpperCase();
 #+end_src
 
-By providing a formatting function, we can alter the way the data /appears/
-without altering the data itself.
+Your solution should work even if you search for "LUcKy JiM".
 
-*a)* Inside of your ~updateTable~ function from the last exercise, declare a new
- function ~formatPrice~ that prefixes the price with a dollar sign (hint: see
- ~formatA~ above for an example of how to do this); then, format the ~price~
- column of each book.
+b) Do you remember the logical /or/ operator from the slides? It looks like
+this: ~||~. An expression using ~||~ resolves to ~true~ if /any/ of its operands
+are ~true~, and ~false~ if /all/ of its operands are ~false~.
 
-*b)* Pick one of the authors of the books and create a formatting function that
- replaces that author's name with your own.
+Try the following examples at the console:
 
-*c)* ~setTableBody~ can also take a function as a third argument, that, when
-  provided, will be called whenever a row is clicked. This function should take
-  two arguments: ~book~ and ~row~. Declare this function inside of ~updateTable~
-  and pass it as the third argument to ~updateTable~. For now, just
-  ~console.log~ the book object (first parameter) inside of the function.
+#+begin_src javascript
+  true || false;
+  false || false;
+  1 > 2 || 2 < 5;
+  // Don't forget to copy-paste the beginsWith function into the console that
+  // you're testing in
+  beginsWith("chimpanzee", "dog) || beginsWith("chimpanzee", "cat") || beginsWith("chimpanzee", "chimp");
+#+end_src
+
+Fix ~isMatch~ to work with the book's ~title~, ~author~ /or/ ~category~.
+
+*** 3.4 Extra Credit: Searching Within Strings
+
+Searching the beginning of a string is all well and good, but what about
+arbitrary text /within/ the string? For instance, what if we wanted to test if
+"panze" was contained within "chimpanzee"?
+
+There's another string method called ~indexOf~ that returns the /index/ of a a
+string if it's contained within another, or ~-1~ if it is not contained within.
+
+Play with it at the console like so:
+
+#+begin_src javascript
+"chimpanzee".indexOf("panze");
+"chimpanzee".indexOf("chimp");
+"chimpanzee".indexOf("p");
+"chimpanzee".indexOf("gorilla");
+#+end_src
+
+*Exercises:*
+
+a) Write a function ~containedWithin~ (add it below ~beginsWith~) that accepts a
+string and a query, and returns ~true~ if the query is contained within the
+string, and false if not.
+
+b) Use ~containedWithin~ instead of ~beginsWith~ for your search. Does it work
+as you'd expect?
