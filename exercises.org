@@ -437,4 +437,9 @@ it is not already contained in the shopping cart when it is clicked, and removes
 it if it is contained in the cart.
 
 ** Exercise 5: Updating the UI
+
+TODO:
+
 ** Exercise 6: Complete the Checkout
+
+TODO:
