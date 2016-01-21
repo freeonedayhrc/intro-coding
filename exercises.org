@@ -419,7 +419,7 @@ Try adding the code shown above directly above the call to ~console.log~ in
 
 You should see something like this:
 
-[[ex4-add-book.gif]]
+[[./img/ex4-add-book.gif]]
 
 The problem is that we're adding the book every time the row is clicked, but we
 never remove it when it's clicked again!
