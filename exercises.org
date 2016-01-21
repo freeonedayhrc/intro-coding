@@ -379,8 +379,62 @@ b) Use ~containedWithin~ instead of ~beginsWith~ for your search. Does it work
 as you'd expect?
 
 
-* Book Store Part 2 (note: separate pen w/ shopping cart visible)
+* [[http://codepen.io/jlehman/pen/wMpdvx?editors=001][Book Store Part 2]]
 
-** Exercise 4: Selecting Books to Buy
-** Exercise 5: Checkout Form & Validation
-** Exercise 6: Checking Out & Confirmation
+In the second part of the Book Store project we'll be working in a different
+*codepen* -- this pen contains the solutions to Part 1, so you can start this
+right away. Click the header above to begin.
+
+** Exercise 4: Adding and Removing Books
+
+Our goal in this exercise is to be able to add and remove books from the
+~shoppingCart~ object. The end result should look something like this:
+
+[[./img/add-remove-books.gif]]
+
+The code we'll be working with should currently look like this:
+
+#+begin_src javascript
+function rowClicked(book) {
+  // ~~ EXERCISE 4 CODE GOES HERE ~~
+
+  console.log("The book is:", book, "The cart contains:", shoppingCart.books());
+}
+#+end_src
+
+As you may have guessed, this function will be called whenever a row is clicked,
+and will be called with the ~book~ object that has been clicked. Try clicking a
+row a few times and see what comes out in the console (in *codepen*).
+
+The ~shoppingCart~ object provides some special functionality via some built-in
+functions. One of these is ~add~ -- it works like this:
+
+#+begin_src javascript
+shoppingCart.add(book); // assuming you have a book to add
+#+end_src
+
+Try adding the code shown above directly above the call to ~console.log~ in
+*codepen*: what happens now when you click a book (hint: watch the console in
+*codepen*)?
+
+You should see something like this:
+
+[[ex4-add-book.gif]]
+
+The problem is that we're adding the book every time the row is clicked, but we
+never remove it when it's clicked again!
+
+*Exercise:* There are two more functions that can be used from the
+~shoppingCart~: ~remove~ and ~contains~.
+
+#+begin_src javascript
+shoppingCart.remove(book); // removes the book if it is in the cart
+shoppingCart.contains(book); // returns true if the book is in the cart, and false if not
+#+end_src
+
+Using these functions, implement ~rowClicked~ such that the book is added /if/
+it is not already contained in the shopping cart when it is clicked, and removes
+it if it is contained in the cart.
+
+** Exercise 5: Updating the UI
+** Exercise 6: Complete the Checkout
