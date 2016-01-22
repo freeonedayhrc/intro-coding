@@ -581,3 +581,10 @@ removed. Try some examples at the console to get a feel for how it works:
 #+end_src
 
 Use trim to ensure that ~firstName~ and ~lastName~ are not empty strings.
+
+e) *EXTRA CREDIT (HARDER)*: Write a function ~capitalize~ that takes a string as
+an argument and returns that string with the first character capitalized. Use
+this function to ensure that ~firstName~ and ~lastName~ are capitalized.
+
+*Hint*: You can accomplish this with a combination of the string methods
+~substring~, ~toUpperCase~ and string concatenation (/e.g./ "a" + "b");
