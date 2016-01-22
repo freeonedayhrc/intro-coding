@@ -490,7 +490,7 @@ d) Finally, searching the books while getting ready to check out doesn't make
 much sense. Let's also hide the ~views.searchBar~ whenever the ~views.cartForm~
 is shown.
 
-*EXTRA CREDIT*: You can use ~views.alert.display("Some message")~ to display an
+e) *EXTRA CREDIT*: You can use ~views.alert.display("Some message")~ to display an
 error message at the top of the screen. Since it doesn't make sense to allow
 someone to check out with an empty cart, update ~startCheckout~ so that if there
 are no books in the cart (hint: use ~shoppingCart.books().length~) an error is
@@ -499,4 +499,85 @@ the alert should be hidden!
 
 ** Exercise 5: Complete the Checkout
 
-TODO:
+You've made it to the last exercise (and hopefully the most exciting one)!
+Congratulations! Only a little more to do.
+
+The last thing that we need to be able to do is perform the final confirmation.
+The process will look like this:
+
+1. User enters first name
+2. User enters last name
+3. User enters phone number
+4. User presses green "Check Out" button
+5. Confirmation is sent
+
+Obviously, we're simplifying things a bit by not handling payment information --
+do that would be outside the scope of this class; instead, we'll just pretend
+that you are all "BookStrap Prime" members and can do one-click ordering.
+
+The function that you will be implementing should currently look like this:
+
+#+begin_src javascript
+function completeCheckout(firstName, lastName, phoneNumber) {
+  console.log("Checkout completed! firstName:", firstName, "lastName:", lastName, "phoneNumber;", phoneNumber);
+  // ~~ EXERCISE 5 CODE GOES HERE ~~
+}
+#+end_src
+
+What you'll notice at this point is that the above message will be logged
+whenever you press the green "Check Out" button. In order to complete the
+purchase, we are going to require the user to enter the correct input in all
+fields -- the task now is to perform some validation.
+
+What we're going for is something that works like this:
+
+[[./img/ex5-complete.gif]]
+
+To validate the first name, we would do something like this:
+
+#+begin_src javascript
+  function completeCheckout(firstName, lastName, phoneNumber) {
+    if (firstName.length === 0) {
+      views.alert.display("First name is required!");
+    }
+#+end_src
+
+This ensures that the /something/ has been given for the ~firstName~, and if
+not, displays the error message "First name is required!" at the top of the
+screen.
+
+*Exercises:*
+
+a) Use ~else if~ to do the same thing for ~lastName~ and ~phoneNumber~. For
+reference on the syntax of ~else if~, see [[https://github.com/jalehman/intro-coding#checking-multiple-conditions][here]].
+
+b) We'll do minimal validation on the ~phoneNumber~ because this is fairly
+challenging. For now, we want to ensure that a 10 digit number has been added.
+For example, if my phone number was =(234) 567-8910=, I would need to enter it
+as: =2345678910=. Use another ~else if~ to check this condition (exactly 10
+digits long) and add an appropriate error message.
+
+c) If all of the validation passes, we want to send a confirmation message
+(hint: ~else~) -- the function ~sendConfirmation~ will do this.
+~sendConfirmation~ takes four arguments (in this order):
+
+1. ~firstName~
+2. ~lastName~
+3. ~phoneNumber~
+4. books to purchase (~shoppingCart.books()~)
+
+Call this function if all input is valid. Hint: try using your actual phone
+number!
+
+d) *EXTRA CREDIT*: Spaces in strings (known as /whitespace/) count as
+characters, so the length of " " is 1; this is a problem for our validation. The
+string method ~trim~ returns a string with leading and trailing whitespace
+removed. Try some examples at the console to get a feel for how it works:
+
+#+begin_src javascript
+"hello".trim();
+" hello".trim();
+" hello ".trim();
+#+end_src
+
+Use trim to ensure that ~firstName~ and ~lastName~ are not empty strings.
