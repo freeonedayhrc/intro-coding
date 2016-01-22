@@ -153,7 +153,7 @@ of smaller, more manageable subproblems. Instead of concerning ourselves with
 searching /all/ of the books, and /all/ of the keys of each book, let's take a
 step back and think about some ways in which a search can work.
 
-*** 3.1 Searching the Beginning of Strings
+*** 2.1 Searching the Beginning of Strings
 
 One way to perform a search against strings is to compare the /beginning/ of the
 string with some other string that we're searching for.
@@ -216,7 +216,7 @@ happens when you run your search? Try searching for "Lucky" -- does it work?
 
 c) Change ~isMatch~ to work on the book's ~author~ instead of its ~title~.
 
-*** 3.2 Interlude: How does it work?
+*** 2.2 Interlude: How does it work?
 
 Now that you have search working, let's take a moment to reflect on how it
 works.
@@ -247,7 +247,7 @@ function searchBooks(query) {
    in ~bookStore~), and returns ~true~ if the book's title ~beginsWith~ the
    ~query~, and ~false~ otherwise.
 
-*** 3.3 Improved Search
+*** 2.3 Improved Search
 
 There are two glaring deficiencies in our search algorithm.
 
@@ -291,7 +291,7 @@ Try the following examples at the console:
 
 Fix ~isMatch~ to work with the book's ~title~, ~author~ /or/ ~category~.
 
-*** 3.4 Extra Credit: Searching Within Strings
+*** 2.4 Extra Credit: Searching Within Strings
 
 Searching the beginning of a string is all well and good, but what about
 arbitrary text /within/ the string? For instance, what if we wanted to test if
@@ -398,7 +398,7 @@ a) The ~shoppingCart~ has two other methods that we can use: ~remove~ and
 + ~shoppingCart.contains(book)~ will return ~true~ if the book is contained in
   the cart, and ~false~ otherwise.
 
-Use this information to implement ~rowClicked~ such that if the book is *not*
+Use this information to implement ~rowClicked~ such that *if* the book is *not*
 *contained* in the shopping cart, it is *added* to it; otherwise (if it *is*
 contained in the cart), the book is *removed* from the shopping cart.
 
