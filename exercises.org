@@ -5,7 +5,7 @@
 Before beginning, please familiarize yourself with the [[./environment.org][environment]] that we'll be
 using.
 
-* Warmup Exercises
+* Activities
 
 If you get stuck on any of these, please do not hesitate to ask for help! The
 solutions will be covered in class after the alotted time.
@@ -18,7 +18,12 @@ These exercises cover the first half of lecture.
 
 These exercises cover the second half of lecture.
 
-* [[http://codepen.io/jlehman/pen/mVqrmw/?editors=001][Project: BookStrap]]
+* [[http://codepen.io/jlehman/pen/bELpLO?editors=0010][Project: BookStrap]]
+
+On to the fun stuff! Here's a demo of what you'll be building in the below
+exercises:
+
+[[./img/all-complete.gif]]
 
 ** Exercise 1: Building a Table of Books
 
