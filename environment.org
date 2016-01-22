@@ -49,7 +49,10 @@ console's history:
 
 [[./img/console-history.gif]]
 
-** Data-structure Expansion
+** Expansion (Objects & Arrays)
+
+(*NOTE:* Objects and arrays will be covered in lecture -- if you don't know what
+these are, don't worry about this yet)
 
 Arrays and objects can be expanded and viewed:
 
