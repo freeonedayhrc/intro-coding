@@ -411,8 +411,91 @@ Use this to modify ~rowClicked~ so that books contained within the shopping cart
 are highlighted, and those that are not in the shopping cart are not
 highlighted.
 
-** Exercise 4: Updating the UI
+** Exercise 4: Show/Hide the Checkout Form
 
+Great! Clearly something is happening with our shopping cart; the next step is
+to display the form that we'll use to "purchase" our books. Our goal for the end
+of this exercise is to get our app to work like this:
+
+[[./img/ex4-checkout-form-complete.gif]]
+
+We have to functions to implement for this exercise. Find the section of code
+that looks like this in *codepen*:
+
+#+begin_src javascript
+function startCheckout() {
+  console.log("Clicked the cart button!");
+  // ~~ EXERCISE 4 CODE GOES HERE ~~
+}
+
+function cancelCheckout() {
+  console.log("Cancelling checkout.");
+  // ~~ EXERCISE 4 CODE GOES HERE ~~
+}
+#+end_src
+
+Open up a console in *codepen* if you don't have one open already. If you click
+the cart button in the upper right corner (above the blue Search button), do you
+see "Clicked the cart button!" message?
+
+Our first order of business is to show form when the cart button is clicked.
+Inside of ~startCheckout~, enter the following and see what happens when you
+click the cart button again.
+
+#+begin_src javascript
+views.cartForm.show(); // yet another method
+#+end_src
+
+The ~views~ (you can see it in the =HELPERS= section -- just scroll down a bit)
+object holds a number of references to various aspects of the page -- all of
+these views can be hidden or shown with the ~hide~ and ~show~ methods, /e.g./:
+
+#+begin_src javascript
+views.cartForm.show(); // shows the cart form
+views.cartForm.hide(); // hides the cart form
+views.searchBar.hide(); // hides the entire search bar
+views.buttons.search.hide(); // hides just the search button
+#+end_src
+
+We can also ask a view if it is hidden or shown like so:
+
+#+begin_src javascript
+views.cartForm.show(); // show the cart form
+views.cartForm.hidden(); // false
+views.cartForm.hide(); // hide the cart form
+views.cartForm.hidden(); // true
+#+end_src
+
+*Exercises:*
+
+a) Whenever the ~startCheckout~ function is called (when the cart button is
+clicked), the cart form should be shown. Using the above methods, make this
+happen.
+
+b) Whenever the ~cancelCheckout~ function is called (when the cancel button in
+the form is clicked), the form should be hidden. Use the above methods to
+accomplish this.
+
+c) It would be really nice if, when the cart was shown, the table updated to
+just reflect the books that are in the cart. We can ask the ~shoppingCart~ to
+give us the books that it holds with the ~shoppingCart.books()~ method. Add a
+~console.log(shoppingCart.books())~ to the end of ~rowClicked~ (from the last
+exercise) to see the value of ~shoppingCart.books()~ as books are added.
+
+Remember the ~drawTable~ function? Use ~drawTable~ in conjunction with
+~shoppingCart.books()~ to update the table to show just those books that are in
+the cart when the cart is shown, and all of the books when it is hidden.
+
+d) Finally, searching the books while getting ready to check out doesn't make
+much sense. Let's also hide the ~views.searchBar~ whenever the ~views.cartForm~
+is shown.
+
+*EXTRA CREDIT*: You can use ~views.alert.display("Some message")~ to display an
+error message at the top of the screen. Since it doesn't make sense to allow
+someone to check out with an empty cart, update ~startCheckout~ so that if there
+are no books in the cart (hint: use ~shoppingCart.books().length~) an error is
+displayed instead of the cart being shown. You'll also need to think about when
+the alert should be hidden!
 
 ** Exercise 5: Complete the Checkout
 
