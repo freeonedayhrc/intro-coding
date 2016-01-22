@@ -321,27 +321,6 @@ howsTheWeather(0); // "It's way too cold outside."
 + ~else if~ must follow an ~if~
 + If there's an ~else~, it must be at the end
 
-** Functions are Powerful
-
-#+begin_src javascript
-function timesFive(x) { return x * 5; }
-function subtractSeven(x) { return x - 7; }
-
-function compose(f, g) {
-  return function(x) {
-    return f(g(x));
-  }
-}
-
-var composition = compose(timesFive, subtractSeven);
-// f: timesFive, g: subtractSeven, x: 8, timesFive(subtractSeven(8)) => 5
-composition(8)
-#+end_src
-
-+ Functions can be:
-  + Passed as arguments
-  + Returned from functions
-+ This is what makes JS powerful
 ** Recap
 
 + *Functions* describe how to perform a task given arguments (parameters)

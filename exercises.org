@@ -18,7 +18,7 @@ These exercises cover the first half of lecture.
 
 These exercises cover the second half of lecture.
 
-* [[http://codepen.io/jlehman/pen/mVqrmw/?editors=001][Book Store Part 1]]
+* [[http://codepen.io/jlehman/pen/mVqrmw/?editors=001][Project: BookStrap]]
 
 ** Exercise 1: Building a Table of Books
 
@@ -145,67 +145,7 @@ When everything is working, you should see something like this:
 
 [[./img/working-book-store-table.png]]
 
-** Exercise 2: Set up Search
-
-Open the console (in *codepen*, not here), enter some text in the search books
-field, and press the search button. You should see something like this:
-
-[[./img/ex2-search-console.png]]
-
-This is the code that makes this happen:
-
-#+begin_src javascript
-function shouldPerformSearch(query) {
-  console.log("You clicked the search button! The query is:", query);
-  // ~~ EXERCISE 2 CODE GOES HERE ~~
-}
-#+end_src
-
-Whenever the blue *Search* button is clicked, the ~shouldPerformSearch~ function
-is called. Given the name, we should expect that this function performs a
-search, but right now it doesn't do much of anything!
-
-Right below ~shouldPerformSearch~ is the function ~searchBooks~.
-
-#+begin_src javascript
-function searchBooks(query) {
-  // body omitted
-}
-#+end_src
-
-In the next exercise we'll be focusing on making ~searchBooks~ perform a decent
-search; for now, let's just see how it works. Notice how ~searchBooks~ takes a
-single argument, ~query~? Instead of logging the ~query~ itself, let's see what
-happens when we call ~searchBooks~ with the query. Change ~shouldPerformSearch~
-to look like this:
-
-#+begin_src javascript
-function shouldPerformSearch(query) {
-  console.log("Your search returned:", searchBooks(query));
-}
-#+end_src
-
-What happens when you press the search button without any text in the field?
-What about when there is text?
-
-[[./img/log-basic-search.gif]]
-
-Clearly, the search needs some work. As mentioned before, we'll fix this later;
-for now, we can just pretend that it works well and use it regardless.
-
-*Exercises:*
-
-a) Currently, the search either returns an empty array, or an array of books
-(this should make sense -- either the search will match nothing, some of the
-books, or all of the books). Inside of ~shouldPerformSearch~, call the
-~drawTable~ function with the result of ~searchBooks~ to update the table
-whenever the search button is clicked.
-
-b) What happens when you use the search button now? Like before, try it with no
-text entered and with text entered. Given the result we saw earlier, does this
-make sense?
-
-** Exercise 3: Implement a Search Algorithm
+** Exercise 2: Implement a Search Algorithm
 
 Implementing a search algorithm sounds like a daunting task. Whenever faced with
 a problem that seems large, the best strategy is to break it down into a number
@@ -378,68 +318,102 @@ string, and false if not.
 b) Use ~containedWithin~ instead of ~beginsWith~ for your search. Does it work
 as you'd expect?
 
+** Exercise 3: Book Selection
 
-* [[http://codepen.io/jlehman/pen/wMpdvx?editors=001][Book Store Part 2]]
+Now that we have a table of books and a way to search them, it's time to start
+adding books to our shopping cart! Before we get into the thick of it, let's
+discuss /methods/.
 
-In the second part of the Book Store project we'll be working in a different
-*codepen* -- this pen contains the solutions to Part 1, so you can start this
-right away. Click the header above to begin.
-
-** Exercise 4: Adding and Removing Books
-
-Our goal in this exercise is to be able to add and remove books from the
-~shoppingCart~ object. The end result should look something like this:
-
-[[./img/add-remove-books.gif]]
-
-The code we'll be working with should currently look like this:
+A *method* is a sort of function that /belongs/ to a piece of data and /does
+something/ with that data when it is invoked. As it happens, you have already
+worked with a few methods! In Exercise 2, we used ~substring~:
 
 #+begin_src javascript
-function rowClicked(book) {
-  // ~~ EXERCISE 4 CODE GOES HERE ~~
+"hello".substring(0, 3); // "hel"
+#+end_src
 
-  console.log("The book is:", book, "The cart contains:", shoppingCart.books());
+~substring~ is a /method/ of strings. We can tell because it's a /function/ that
+/belongs/ to a string -- note how above ~substring~ is referenced with a *.*
+after a string -- ~substring~ makes use of the string it belongs to in order to
+give us the result: "hel".
+
+We will be making use of some methods in upcoming examples and exercises. Don't
+worry too much about them -- you will not be expected to write your own methods
+or discover any on your own -- the ones that we will be using will be mentioned
+here and should be intuitive.
+
+The goal of this exercise is to make our app work like this:
+
+[[./img/ex3-add-book-complete.gif]]
+
+First, we need to revisit ~tableConfig~. Change ~tableConfig~ (same one from
+Exercise 1) to look like this:
+
+#+begin_src javascript
+// Feel free to leave your headers and rowKeys unchanged
+var tableConfig = {
+  headers: ["Title", "Author", "Genre", "Price"],
+  rowKeys: ["title", "author", "category", "price"], // don't forget the comma!
+  rowClicked: rowClicked // this is the new part
 }
 #+end_src
 
-As you may have guessed, this function will be called whenever a row is clicked,
-and will be called with the ~book~ object that has been clicked. Try clicking a
-row a few times and see what comes out in the console (in *codepen*).
-
-The ~shoppingCart~ object provides some special functionality via some built-in
-functions. One of these is ~add~ -- it works like this:
+Now, try clicking on a few rows with the console open (in *codepen*). What
+happens? Find the section in the code for =Exercise 4= -- the ~rowClicked~
+function is what is now being executed whenever a row is clicked:
 
 #+begin_src javascript
-shoppingCart.add(book); // assuming you have a book to add
+function rowClicked(book, row) {
+  console.log("Clicked book:", book);
+}
 #+end_src
 
-Try adding the code shown above directly above the call to ~console.log~ in
-*codepen*: what happens now when you click a book (hint: watch the console in
-*codepen*)?
+What we're trying to achieve is twofold:
+1. Highlight the selected rows
+2. Add/remove books from the ~shoppingCart~
 
-You should see something like this:
+The ~rowClicked~ function is called with two arguments: ~book~ and ~row~.
++ *book* is what you'd expect -- a familiar book object.
++ *row* is a special object that exposes some methods to manipulate its visual
+  state.
 
-[[./img/ex4-add-book.gif]]
-
-The problem is that we're adding the book every time the row is clicked, but we
-never remove it when it's clicked again!
-
-*Exercise:* There are two more functions that can be used from the
-~shoppingCart~: ~remove~ and ~contains~.
+This is where methods enter the picture! The ~shoppingCart~ comes with a method
+~add~ that takes a book as an argument and /adds/ it to the shopping cart. Try
+it by putting this inside ~rowClicked~:
 
 #+begin_src javascript
-shoppingCart.remove(book); // removes the book if it is in the cart
-shoppingCart.contains(book); // returns true if the book is in the cart, and false if not
+shoppingCart.add(book);
 #+end_src
 
-Using these functions, implement ~rowClicked~ such that the book is added /if/
-it is not already contained in the shopping cart when it is clicked, and removes
-it if it is contained in the cart.
+What happens when you click on a book now? You should see the amount inside of
+the button in the upper right corner increase by the price of the book. There's
+a problem though: clicking a book multiple times seems to add the book multiple
+times -- ideally, we'd like clicking on the same book to /remove/ the book.
 
-** Exercise 5: Updating the UI
+*Exercises:*
 
-TODO:
+a) The ~shoppingCart~ has two other methods that we can use: ~remove~ and
+~contains~ -- each of which also take a book as an argument.
++ ~shoppingCart.remove(book)~ will remove the book from the cart (if it is there)
++ ~shoppingCart.contains(book)~ will return ~true~ if the book is contained in
+  the cart, and ~false~ otherwise.
 
-** Exercise 6: Complete the Checkout
+Use this information to implement ~rowClicked~ such that if the book is *not*
+*contained* in the shopping cart, it is *added* to it; otherwise (if it *is*
+contained in the cart), the book is *removed* from the shopping cart.
+
+b) The ~row~ argument to ~rowClicked~ is an object whose visual state can be
+manipulated with methods. Two of these are:
++ ~row.highlight()~: highlights the row, and
++ ~row.unhighlight()~: unhighlights the row
+
+Use this to modify ~rowClicked~ so that books contained within the shopping cart
+are highlighted, and those that are not in the shopping cart are not
+highlighted.
+
+** Exercise 4: Updating the UI
+
+
+** Exercise 5: Complete the Checkout
 
 TODO:
