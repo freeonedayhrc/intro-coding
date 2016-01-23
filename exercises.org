@@ -205,13 +205,13 @@ beginsWith("chimpanzee", "chip"); // false
 #+end_src
 
 When you have it working, copy this function to *codepen* where it says:
-=EXERCISE 3.1 CODE GOES HERE=
+=EXERCISE 2.1 CODE GOES HERE=
 
 b) Look in *codepen* for the section of code in ~searchBooks~ that looks like this:
 
 #+begin_src javascript
 function isMatch(book) {
-  // ~~ EXERCISE 3 CODE GOES HERE ~~
+  // ~~ EXERCISE 2.3, 2.4 CODE GOES HERE ~~
   return false; // considers NO book a match
 }
 #+end_src
