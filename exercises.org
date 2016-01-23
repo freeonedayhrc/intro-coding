@@ -69,7 +69,7 @@ Add the variable ~foods~:
 var foods = [
   {name: "apple", type: "fruit", delicious: "yes"},
   {name: "ribeye", type: "meat", delicious: "yes"},
-  {name: "fruitcake", type: "baked goods", delicious: "not really"}
+  {name: "mudcake", type: "baked goods", delicious: "not at all"}
 ];
 #+end_src
 
