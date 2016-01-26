@@ -39,21 +39,19 @@ There are lots of great languages, but:
 ** Expectations
 
 + You will be writing actual *code*
-+ High level of abstraction
-  + Helper functions provided
-+ A complete codebase
-  + No libraries!
-+ Cannot learn to code in four hours
-  + /Can/ experience the /process/ of coding
++ Cannot become a programmer in two hours, but:
+  + Get exposure to the basics
+  + Can experience the process of coding
+  + Have next steps
 
 ** Class Format
 
 + The lecture is meant to be /interactive/
   + Follow along with examples in lecture
-  + *Do not hesitate to ask for help with /anything/*
-+ Two short lectures and accompanying exercises
-+ Two-part project
-+ Exercises & Project will be discussed
+  + Exercises throughout
++ *Do not hesitate to ask for help*
+  + Public chat in lecture
+  + Private chat (see link in video details)
 
 ** Topics Covered
 
@@ -63,17 +61,13 @@ There are lots of great languages, but:
 + *Functions*: Building Blocks
   + The /how/ of our programs
   + Used to represent /ideas/
-+ *Control Flow*: ~if~, ~else if~, ~else~
-  + The /logic/ in our programs
-  + Allows programs to make /decisions/ based on *data*
 
-* Data
+* Data and Data Structures
 
 "Data" is what our programs store, manipulate, display and compute. Data is the
 /subject/ of our programs.
 
-*Question:* How can we represent characteristics of a *person* as data (/e.g./
-Facebook profile)?
+*Question*: How can we represent characteristics of a *person* as data (e.g. Facebook profile)?
 
 ** Primitives: Numbers
 
@@ -86,6 +80,21 @@ Math.floor(7.682); // There are many mathematical functions
 + Programming is /not/ all about math
   + But math is useful
 + Order of operations matters (PEMDAS)
+
+** Exercises: Numbers
+
+Do the following exercises at the console:
+
+#+begin_src javascript
+  // 1. What is the result of the following?
+  5 + 7 * 8 - 5
+  // 2. How about this? If they are different, why?
+  (5 + 7) * (8 - 5)
+  // 3. Translate your height from inches and feet to centimeters (or vice-versa)
+  // if you already know your height in centimeters. There are 2.54cm per inch.
+  // e.g. 6 feet, 1 inches is:
+  ((6 * 12) + 1) * 2.54
+#+end_src
 
 ** Primitives: Strings
 
@@ -101,6 +110,18 @@ Math.floor(7.682); // There are many mathematical functions
   + Single quotes work too
 + There are [[http://www.w3schools.com/js/js_string_methods.asp][lots]] of useful operations for working with strings
 
+** Exercises: Strings
+
+Do the following exercises at the console:
+
+#+begin_src javascript
+// 1. What happens when you use the '+' sign with strings?
+"the quick " + "brown fox ..."
+// 2. Enter your name as two strings, and use the '+' to combine them as you did above.
+// 3. Find the length of your name with .length
+// 4. Turn your name into upper case.
+#+end_src
+
 ** Primitives: Booleans
 
 #+begin_src javascript
@@ -111,29 +132,41 @@ true || false // logical "or"
 !true // logical "not"
 1 > 2;
 3 <= 1000000;
-4 === 4;
+4 === 4; // equality
 "hello".length >= 5;
 #+end_src
 
 + Booleans are how we talk about /logic/
-+ *Examples*:
-  + /As long as/ some condition is /true/, keep doing something
-  + /If/ some condition is /true/, do something. /Otherwise/, do something else.
 + The results of /comparisons/ are booleans
 
-** Interlude: Variables
+** Exercies: Booleans
+
+Do the following exercises at the console:
+
+#+begin_src javascript
+  // 1. Try the following comparison. What is the result? Any idea why?
+  "Bob" === "bob"
+  // 2. How about this one?
+  4 === "4"
+  // 3. Try the following comparisons:
+  1 > 2 || 5 > 2
+  5 === 5 && 8 > 7
+  !(1 > 2)
+#+end_src
+
+** Variables
 
 #+begin_src javascript
 var ten = 10; // create variable named `ten` and assign 10 to it.
-var myName; // declare a variable without assigning anything
+var myName; // declares a variable without assigning anything
 // assign "Josh Lehman" to the existing variable `myName`
 myName = "Josh Lehman";
 // variable names can be used to reference their values
 myName.length > ten;
 ten + 5;
-ten === 10;
+ten; // ?
 ten = ten + 5; // reassignment
-ten === 10;
+ten; // ?
 #+end_src
 
 + ~var~ is used to *create* a new variable
@@ -142,6 +175,21 @@ ten === 10;
   + To associate /names/ with /values/
   + As storage locations
 + Variables can be /reassigned/
+
+** Exercises: Variables
+
+Do the following exercises at the console:
+
+#+begin_src javascript
+// 1. Create a variable called firstName, and assign your name to it.
+// e.g. var firstName = "Josh"
+// 2. Create a variable called lastName, and assign your name to it.
+// 3. Create a variable called fullName, and assign your full name to it. Try
+// using the firstName and lastName in conjunction with the '+' operator instead of rewriting
+// your name.
+// 4. Is your name longer than my name? Hint: use '.length' to compare the two.
+var instructorName = "Josh Lehman";
+#+end_src
 
 ** Interlude: Equality
 
@@ -180,6 +228,10 @@ We use ~===~ to /test for equality/.
 + Access values by /key/:
   + Dot Notation: ~josh.age~, Bracket Notation: ~josh["age"]~
 
+** Exercises: Objects
+
+These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
+
 ** Compound Data: Arrays
 
 #+begin_src javascript
@@ -205,20 +257,23 @@ people[2]; // {name: "Alyssa P. Hacker", age: 20}
 #+begin_src javascript
 var josh = {
   name: {
-    first: "Joshua",
-    middle: "Adam",
+    first: "Josh",
     last: "Lehman"
   },
   age: 26,
   gender: "male",
   programmer: true,
   favoriteTVShows: ["Fargo", "Breaking Bad", "Battlestar Galactica"],
-  pets: [{type: "cat", name: "Cheesus", age: 3, biochipped: true, color: "orange"}]
+  pets: [{type: "cat", name: "Pal", age: 3, biochipped: true, color: "orange"}]
 }
-josh.name.middle; // "Adam"
+josh.name.last; // "Lehman"
 josh.favoriteTVShows[0]; // "Fargo"
-josh.pets[0].name; // "Cheesus"
+josh.pets[0].type; // "cat"
 #+end_src
+
+** Exercises: All the data!
+
+These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
 
 ** Recap
 
@@ -227,15 +282,9 @@ josh.pets[0].name; // "Cheesus"
 + *Variables* are named storage locations
 + *Objects* represent data with multiple characteristics
 + *Arrays* represent many pieces of data (usually similar)
-** Exercises
-
-Exercises covering this material can be found [[http://codepen.io/jlehman/pen/GoOMGz?editors=001][here]].
-
-* Functions & Control Flow
+* Basics of Functions
 
 /Functions/ allow us to represent a /task/ with a name and parameters.
-
-/Control Flow/ allows us to change the /execution/ of our programs with logic.
 
 ** What are Functions?
 
@@ -255,7 +304,11 @@ square(square(5));
 + Usually have /arguments/ (the stuff inside the parenthesis)
 + Usually ~return~ a result
 
-** More on Functions
+** Exercises: Basic Functions
+
+These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
+
+** Functions with Multiple Arguments
 
 #+begin_src javascript
 // Functions frequently have multiple arguments (separated by commas)
@@ -272,60 +325,52 @@ divide(9, 3) // x: 9, y: 3, 9 / 3 => 3
 divide(3, 9) // x: 3, y: 9, 3 / 9 => 0.333333333
 #+end_src
 
-+ Arguments are just named placeholders!
++ Functions can have multiple arguments
++ *Remember*: arguments are just named placeholders!
   + The values are supplied when the function is /invoked/ (or "called")
 
-** If & Else Statements
+** Exercises: Functions with Multiple Arguments
+
+These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
+
+** Functions with Data Structures
 
 #+begin_src javascript
-function canEnterBar(person) {
-  // the "condition" is what comes between the parenthesis
-  // a condition should evaluate to true or false
-  if (person.age >= 21) {
-    // executed if condition is true -- this is called the "consequent"
-    return "You may enter, " + person.name + ".";
-  } else {
-    // executed if condition is false -- called the "alternate"
-    return "Go home, " + person.name + ".";
-  }
+// Functions frequently output data structures...
+function makePerson(name, age, cats) {
+  var person = {name: name, age: age, cats: cats};
+  return person;
 }
-var louis = {name: "Louis Reasoner", age: 54};
-var alyssa = {name: "Alyssa P. Hacker", age: 20};
-canEnterBar(louis);
-canEnterBar(alyssa);
+var johnDoe = makePerson("John Doe", 35, ["Fluffy"]);
+
+// ... will often receive them as arguments...
+function aboutPerson(person) {
+  return person.name + " is " + person.age +
+    " years old, and has " + person.cats.length + " cats.";
+}
+aboutPerson(johnDoe);
+
+// ... and can manipulate them!
+function hadBirthday(person) {
+  person.age = person.age + 1;
+  return person;
+}
+hadBirthday(johnDoe);
 #+end_src
 
-+ An ~if~ does not need to have an ~else~ following
-  + An ~else~ MUST come after an ~if~
-+ *NOTE:* The ~return~ keyword causes the function to exit!
++ Data structures and functions work well together
 
-** Checking multiple conditions
+** Exercises: Functions with Data Structures
 
-#+begin_src javascript
-function howsTheWeather(temperature) {
-  if (temperature >= 90) {
-    return "It's way too hot outside."
-  } else if (temperature >= 68) {
-    return "It's pretty nice outside."
-  } else if (temperature >= 32) {
-    return "Meh. It's kind of cold."
-  } else {
-    return "It's way too cold outside."
-  }
-}
-howsTheWeather(72); // "It's pretty nice outside."
-howsTheWeather(0); // "It's way too cold outside."
-#+end_src
-
-+ Test any number of conditions with ~else if~
-+ ~else if~ must follow an ~if~
-+ If there's an ~else~, it must be at the end
+These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
 
 ** Recap
 
 + *Functions* describe how to perform a task given arguments (parameters)
-  + This keeps us from rewriting the same code over and over
-+ *if, else if, else* allow our programs to make /decisions/ based on /data/
+  + Don't solve the same problem multiple times: /use a function/
++ Functions can take multiple arguments
++ Arguments to and results from functions can be any kind of data
+
 ** Exercises
 
 Exercises covering this material can be found [[http://codepen.io/jlehman/pen/adEZQQ?editors=001][here]].
