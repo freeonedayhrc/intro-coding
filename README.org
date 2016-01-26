@@ -90,19 +90,25 @@ Do the following exercises at the console:
   5 + 7 * 8 - 5
   // 2. How about this? If they are different, why?
   (5 + 7) * (8 - 5)
-  // 3. Translate your height from inches and feet to centimeters (or vice-versa)
-  // if you already know your height in centimeters. There are 2.54cm per inch.
+  // 3. Translate your height from inches and feet to centimeters
+  // (or vice-versa if you know your height in centimeters)
+  // NOTE: There are 2.54cm per inch.
+
   // e.g. 6 feet, 1 inches is:
   ((6 * 12) + 1) * 2.54
 #+end_src
+
+/NOTE/: To open the console:
++ *Mac:* Command + Option + J
++ *Windows/Linux:* Control + Shift + J
 
 ** Primitives: Strings
 
 #+begin_src javascript
 "Hello, World!"; // a string
-"Java" + "Script"; // "concatenation" of two strings with the "+" operator
+"Java" + "Script"; // combine two strings with the "+" operator
 "yay strings".length; // the length of the string can be computed
-"make me uppercase".toUpperCase(); // There are many ways to transform text
+"make me uppercase".toUpperCase(); // Does what you'd expect
 #+end_src
 
 + Strings are used to represent text
@@ -117,10 +123,14 @@ Do the following exercises at the console:
 #+begin_src javascript
 // 1. What happens when you use the '+' sign with strings?
 "the quick " + "brown fox ..."
-// 2. Enter your name as two strings, and use the '+' to combine them as you did above.
+// 2. Enter your name as two strings. Use + to combine them (see above)
 // 3. Find the length of your name with .length
 // 4. Turn your name into upper case.
 #+end_src
+
+/NOTE/: To open the console:
++ *Mac:* Command + Option + J
++ *Windows/Linux:* Control + Shift + J
 
 ** Primitives: Booleans
 
@@ -154,6 +164,10 @@ Do the following exercises at the console:
   !(1 > 2)
 #+end_src
 
+/NOTE/: To open the console:
++ *Mac:* Command + Option + J
++ *Windows/Linux:* Control + Shift + J
+
 ** Variables
 
 #+begin_src javascript
@@ -181,15 +195,16 @@ ten; // ?
 Do the following exercises at the console:
 
 #+begin_src javascript
-// 1. Create a variable called firstName, and assign your name to it.
+// 1. Change firstName below to contain your first name:
 // e.g. var firstName = "Josh"
-// 2. Create a variable called lastName, and assign your name to it.
-// 3. Create a variable called fullName, and assign your full name to it. Try
-// using the firstName and lastName in conjunction with the '+' operator instead of rewriting
-// your name.
-// 4. Is your name longer than my name? Hint: use '.length' to compare the two.
-var instructorName = "Josh Lehman";
+// 2. Create a variable "lastName" that contains your last name
+// 3. Combine firstName and lastName in with '+' and assign it to a
+//    variable called fullName
 #+end_src
+
+/NOTE/: To open the console:
++ *Mac:* Command + Option + J
++ *Windows/Linux:* Control + Shift + J
 
 ** Interlude: Equality
 
@@ -232,6 +247,11 @@ We use ~===~ to /test for equality/.
 
 These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
 
+
+/NOTE/: Open the console in *Codepen*:
++ *Mac:* Command + Option + J
++ *Windows/Linux:* Control + Shift + J
+
 ** Compound Data: Arrays
 
 #+begin_src javascript
@@ -271,9 +291,16 @@ josh.favoriteTVShows[0]; // "Fargo"
 josh.pets[0].type; // "cat"
 #+end_src
 
++ Anything can be accessed!
+  + Use combination of *dot* and *bracket* notation
+
 ** Exercises: All the data!
 
 These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
+
+/NOTE/: Open the console in *Codepen*:
++ *Mac:* Command + Option + J
++ *Windows/Linux:* Control + Shift + J
 
 ** Recap
 
@@ -308,6 +335,10 @@ square(square(5));
 
 These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
 
+/NOTE/: Open the console in *Codepen*:
++ *Mac:* Command + Option + J
++ *Windows/Linux:* Control + Shift + J
+
 ** Functions with Multiple Arguments
 
 #+begin_src javascript
@@ -332,6 +363,10 @@ divide(3, 9) // x: 3, y: 9, 3 / 9 => 0.333333333
 ** Exercises: Functions with Multiple Arguments
 
 These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
+
+/NOTE/: Open the console in *Codepen*:
++ *Mac:* Command + Option + J
++ *Windows/Linux:* Control + Shift + J
 
 ** Functions with Data Structures
 
@@ -363,6 +398,10 @@ hadBirthday(johnDoe);
 ** Exercises: Functions with Data Structures
 
 These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
+
+/NOTE/: Open the console in *Codepen*:
++ *Mac:* Command + Option + J
++ *Windows/Linux:* Control + Shift + J
 
 ** Recap
 
