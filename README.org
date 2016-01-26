@@ -139,7 +139,7 @@ true || false // logical "or"
 + Booleans are how we talk about /logic/
 + The results of /comparisons/ are booleans
 
-** Exercies: Booleans
+** Exercises: Booleans
 
 Do the following exercises at the console:
 
