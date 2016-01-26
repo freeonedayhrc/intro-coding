@@ -370,7 +370,3 @@ These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?e
   + Don't solve the same problem multiple times: /use a function/
 + Functions can take multiple arguments
 + Arguments to and results from functions can be any kind of data
-
-** Exercises
-
-Exercises covering this material can be found [[http://codepen.io/jlehman/pen/adEZQQ?editors=001][here]].
