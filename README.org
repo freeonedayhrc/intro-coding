@@ -97,9 +97,10 @@ Do the following exercises at the console:
   ((6 * 12) + 1) * 2.54
 #+end_src
 
-/NOTE/: To open the console:
-+ *Mac:* Command + Option + J
-+ *Windows/Linux:* Control + Shift + J
++ To open the console:
+  + *Mac:* Command + Option + J
+  + *Windows/Linux:* Control + Shift + J
++ Live 1:1 chat help, click [[https://secure.livechatinc.com/licence/7021531/open_chat.cgi][here]] or #2 on *Important URLS*
 
 ** Primitives: Strings
 
@@ -127,9 +128,10 @@ Do the following exercises at the console:
 // 4. Turn your name into upper case.
 #+end_src
 
-/NOTE/: To open the console:
-+ *Mac:* Command + Option + J
-+ *Windows/Linux:* Control + Shift + J
++ To open the console:
+  + *Mac:* Command + Option + J
+  + *Windows/Linux:* Control + Shift + J
++ Live 1:1 chat help, click [[https://secure.livechatinc.com/licence/7021531/open_chat.cgi][here]] or #2 on *Important URLS*
 
 ** Primitives: Booleans
 
@@ -163,9 +165,10 @@ Do the following exercises at the console:
   !(1 > 2)
 #+end_src
 
-/NOTE/: To open the console:
-+ *Mac:* Command + Option + J
-+ *Windows/Linux:* Control + Shift + J
++ To open the console:
+  + *Mac:* Command + Option + J
+  + *Windows/Linux:* Control + Shift + J
++ Live 1:1 chat help, click [[https://secure.livechatinc.com/licence/7021531/open_chat.cgi][here]] or #2 on *Important URLS*
 
 ** Variables
 
@@ -201,9 +204,10 @@ Do the following exercises at the console:
 //    variable called fullName
 #+end_src
 
-/NOTE/: To open the console:
-+ *Mac:* Command + Option + J
-+ *Windows/Linux:* Control + Shift + J
++ To open the console:
+  + *Mac:* Command + Option + J
+  + *Windows/Linux:* Control + Shift + J
++ Live 1:1 chat help, click [[https://secure.livechatinc.com/licence/7021531/open_chat.cgi][here]] or #2 on *Important URLS*
 
 ** Interlude: Equality
 
@@ -246,10 +250,10 @@ We use ~===~ to /test for equality/.
 
 These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
 
-
-/NOTE/: Open the console in *Codepen*:
-+ *Mac:* Command + Option + J
-+ *Windows/Linux:* Control + Shift + J
++ To open the console:
+  + *Mac:* Command + Option + J
+  + *Windows/Linux:* Control + Shift + J
++ Live 1:1 chat help, click [[https://secure.livechatinc.com/licence/7021531/open_chat.cgi][here]] or #2 on *Important URLS*
 
 ** Compound Data: Arrays
 
@@ -297,9 +301,10 @@ josh.pets[0].type; // "cat"
 
 These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
 
-/NOTE/: Open the console in *Codepen*:
-+ *Mac:* Command + Option + J
-+ *Windows/Linux:* Control + Shift + J
++ To open the console:
+  + *Mac:* Command + Option + J
+  + *Windows/Linux:* Control + Shift + J
++ Live 1:1 chat help, click [[https://secure.livechatinc.com/licence/7021531/open_chat.cgi][here]] or #2 on *Important URLS*
 
 ** Recap
 
@@ -334,9 +339,10 @@ square(square(5));
 
 These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
 
-/NOTE/: Open the console in *Codepen*:
-+ *Mac:* Command + Option + J
-+ *Windows/Linux:* Control + Shift + J
++ To open the console:
+  + *Mac:* Command + Option + J
+  + *Windows/Linux:* Control + Shift + J
++ Live 1:1 chat help, click [[https://secure.livechatinc.com/licence/7021531/open_chat.cgi][here]] or #2 on *Important URLS*
 
 ** Functions with Multiple Arguments
 
@@ -363,9 +369,10 @@ divide(3, 9) // x: 3, y: 9, 3 / 9 => 0.333333333
 
 These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
 
-/NOTE/: Open the console in *Codepen*:
-+ *Mac:* Command + Option + J
-+ *Windows/Linux:* Control + Shift + J
++ To open the console:
+  + *Mac:* Command + Option + J
+  + *Windows/Linux:* Control + Shift + J
++ Live 1:1 chat help, click [[https://secure.livechatinc.com/licence/7021531/open_chat.cgi][here]] or #2 on *Important URLS*
 
 ** Functions with Data Structures
 
@@ -398,9 +405,10 @@ hadBirthday(johnDoe);
 
 These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?editors=0010][here]].
 
-/NOTE/: Open the console in *Codepen*:
-+ *Mac:* Command + Option + J
-+ *Windows/Linux:* Control + Shift + J
++ To open the console:
+  + *Mac:* Command + Option + J
+  + *Windows/Linux:* Control + Shift + J
++ Live 1:1 chat help, click [[https://secure.livechatinc.com/licence/7021531/open_chat.cgi][here]] or #2 on *Important URLS*
 
 ** Recap
 

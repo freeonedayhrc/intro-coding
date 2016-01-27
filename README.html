@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Intro to Coding</title>
+<meta name="author" content="(Josh Lehman)"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/moon.css" id="theme"/>
+<link rel="stylesheet" href="./assets/presentation.extra.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1>Intro to Coding</h1>
+<h2>Josh Lehman</h2>
+<h2><a href="mailto:freeoneday@hackreactor.com">freeoneday@hackreactor.com</a></h2>
+<h2></h2>
+</section>
+<div id="logo-container">
+  <a href="http://hackreactor.com/remote-beta">
+    <img id="logo-image" src="assets/hr-logo.png">
+  </a>
+</div>
+
+<section>
+<section id="slide-orgheadline6">
+<h2 id="orgheadline6">Overview &amp; Logistics</h2>
+<div class="outline-text-2" id="text-orgheadline6">
+</div></section>
+<section id="slide-orgheadline1">
+<h3 id="orgheadline1">What is Programming?</h3>
+<ul>
+<li>Programming <i>is</i> the act of writing computer code</li>
+<li>Programming is <i>about</i> building and working with ideas</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline2">
+<h3 id="orgheadline2">Why JavaScript?</h3>
+<p>
+Why not C, C++, Ruby, Perl, Python, Julia, Erlang, Haskell, Clojure, Scheme,
+Java, PHP, C#, or Swift?
+</p>
+
+<p>
+There are lots of great languages, but:
+</p>
+
+<ul>
+<li>JS is one of the <a href="http://stackoverflow.com/research/developer-survey-2015#tech-lang">the most popular languages in the world</a></li>
+<li>JS runs everywhere!
+<ul>
+<li>Browsers, servers, microcontrollers, iOS, Android, and more</li>
+
+</ul></li>
+<li>JS is <i>expressive</i>
+<ul>
+<li>Can represent ideas in natural/interesting ways</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline3">
+<h3 id="orgheadline3">Expectations</h3>
+<ul>
+<li>You will be writing actual <b>code</b></li>
+<li>Cannot become a programmer in two hours, but:
+<ul>
+<li>Get exposure to the basics</li>
+<li>Can experience the process of coding</li>
+<li>Have next steps</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline4">
+<h3 id="orgheadline4">Class Format</h3>
+<ul>
+<li>The lecture is meant to be <i>interactive</i>
+<ul>
+<li>Follow along with examples in lecture</li>
+<li>Exercises throughout</li>
+
+</ul></li>
+<li><b>Do not hesitate to ask for help</b>
+<ul>
+<li>Public chat in lecture</li>
+<li>Private chat (see link in video details)</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline5">
+<h3 id="orgheadline5">Topics Covered</h3>
+<ul>
+<li><b>Data</b>: Primitives &amp; Compound Data
+<ul>
+<li>Numbers, Strings, Booleans, Arrays, Objects</li>
+<li>The <i>what</i> of our programs</li>
+
+</ul></li>
+<li><b>Functions</b>: Building Blocks
+<ul>
+<li>The <i>how</i> of our programs</li>
+<li>Used to represent <i>ideas</i></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline22">
+<h2 id="orgheadline22">Data and Data Structures</h2>
+<p>
+"Data" is what our programs store, manipulate, display and compute. Data is the
+<i>subject</i> of our programs.
+</p>
+
+<p>
+<b>Question</b>: How can we represent characteristics of a <b>person</b> as data (e.g. Facebook profile)?
+</p>
+
+</section>
+<section id="slide-orgheadline7">
+<h3 id="orgheadline7">Primitives: Numbers</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #4e3163;">1</span> + <span style="color: #4e3163;">3</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">we can use operators to perform addition,</span>
+<span style="color: #4e3163;">7</span> * <span style="color: #4e3163;">4</span> / <span style="color: #4e3163;">3</span> - <span style="color: #4e3163;">17</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">multiplication, divisiion and subtraction</span>
+Math.floor<span style="color: #3a81c3;">(</span><span style="color: #4e3163;">7</span>.<span style="color: #4e3163;">682</span><span style="color: #3a81c3;">)</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">There are many mathematical functions</span>
+</pre>
+</div>
+
+<ul>
+<li>Programming is <i>not</i> all about math
+<ul>
+<li>But math is useful</li>
+
+</ul></li>
+<li>Order of operations matters (PEMDAS)</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline8">
+<h3 id="orgheadline8">Exercises: Numbers</h3>
+<p>
+Do the following exercises at the console:
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">1. What is the result of the following?</span>
+<span style="color: #4e3163;">5</span> + <span style="color: #4e3163;">7</span> * <span style="color: #4e3163;">8</span> - <span style="color: #4e3163;">5</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">2. How about this? If they are different, why?</span>
+<span style="color: #3a81c3;">(</span><span style="color: #4e3163;">5</span> + <span style="color: #4e3163;">7</span><span style="color: #3a81c3;">)</span> * <span style="color: #3a81c3;">(</span><span style="color: #4e3163;">8</span> - <span style="color: #4e3163;">5</span><span style="color: #3a81c3;">)</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">3. Translate your height from inches and feet to centimeters</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">(or vice-versa if you know your height in centimeters)</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #d0bf8f;">NOTE</span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">: There are 2.54cm per inch.</span>
+
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">e.g. 6 feet, 1 inches is:</span>
+<span style="color: #3a81c3;">(</span><span style="color: #6c3163;">(</span><span style="color: #4e3163;">6</span> * <span style="color: #4e3163;">12</span><span style="color: #6c3163;">)</span> + <span style="color: #4e3163;">1</span><span style="color: #3a81c3;">)</span> * <span style="color: #4e3163;">2</span>.<span style="color: #4e3163;">54</span>
+</pre>
+</div>
+
+<ul>
+<li>To open the console:
+<ul>
+<li><b>Mac:</b> Command + Option + J</li>
+<li><b>Windows/Linux:</b> Control + Shift + J</li>
+
+</ul></li>
+<li>Live 1:1 chat help, click <a href="https://secure.livechatinc.com/licence/7021531/open_chat.cgi">here</a> or #2 on <b>Important URLS</b></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline9">
+<h3 id="orgheadline9">Primitives: Strings</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #2d9574;">"Hello, World!"</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">a string</span>
+<span style="color: #2d9574;">"Java"</span> + <span style="color: #2d9574;">"Script"</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">combine two strings with the "+" operator</span>
+<span style="color: #2d9574;">"yay strings"</span>.length; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">the length of the string can be computed</span>
+<span style="color: #2d9574;">"make me uppercase"</span>.toUpperCase<span style="color: #3a81c3;">()</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">Does what you'd expect</span>
+</pre>
+</div>
+
+<ul>
+<li>Strings are used to represent text</li>
+<li>We use double quotes to represent strings
+<ul>
+<li>Single quotes work too</li>
+
+</ul></li>
+<li>There are <a href="http://www.w3schools.com/js/js_string_methods.asp">lots</a> of useful operations for working with strings</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline10">
+<h3 id="orgheadline10">Exercises: Strings</h3>
+<p>
+Do the following exercises at the console:
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">1. What happens when you use the '+' sign with strings?</span>
+<span style="color: #2d9574;">"the quick "</span> + <span style="color: #2d9574;">"brown fox ..."</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">2. Enter your name as two strings. Use + to combine them (see above)</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">3. Find the length of your name with .length</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">4. Turn your name into upper case.</span>
+</pre>
+</div>
+
+<ul>
+<li>To open the console:
+<ul>
+<li><b>Mac:</b> Command + Option + J</li>
+<li><b>Windows/Linux:</b> Control + Shift + J</li>
+
+</ul></li>
+<li>Live 1:1 chat help, click <a href="https://secure.livechatinc.com/licence/7021531/open_chat.cgi">here</a> or #2 on <b>Important URLS</b></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline11">
+<h3 id="orgheadline11">Primitives: Booleans</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #4e3163;">true</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">this is true</span>
+<span style="color: #4e3163;">false</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">this is false</span>
+<span style="color: #4e3163;">true</span> &amp;&amp; <span style="color: #4e3163;">false</span> <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">logical "and"</span>
+<span style="color: #4e3163;">true</span> || <span style="color: #4e3163;">false</span> <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">logical "or"</span>
+!<span style="color: #4e3163;">true</span> <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">logical "not"</span>
+<span style="color: #4e3163;">1</span> &gt; <span style="color: #4e3163;">2</span>;
+<span style="color: #4e3163;">3</span> &lt;= <span style="color: #4e3163;">1000000</span>;
+<span style="color: #4e3163;">4</span> === <span style="color: #4e3163;">4</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">equality</span>
+<span style="color: #2d9574;">"hello"</span>.length &gt;= <span style="color: #4e3163;">5</span>;
+</pre>
+</div>
+
+<ul>
+<li>Booleans are how we talk about <i>logic</i></li>
+<li>The results of <i>comparisons</i> are booleans</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline12">
+<h3 id="orgheadline12">Exercises: Booleans</h3>
+<p>
+Do the following exercises at the console:
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">1. Try the following comparison. What is the result? Any idea why?</span>
+<span style="color: #2d9574;">"Bob"</span> === <span style="color: #2d9574;">"bob"</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">2. How about this one?</span>
+<span style="color: #4e3163;">4</span> === <span style="color: #2d9574;">"4"</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">3. Try the following comparisons:</span>
+<span style="color: #4e3163;">1</span> &gt; <span style="color: #4e3163;">2</span> || <span style="color: #4e3163;">5</span> &gt; <span style="color: #4e3163;">2</span>
+<span style="color: #4e3163;">5</span> === <span style="color: #4e3163;">5</span> &amp;&amp; <span style="color: #4e3163;">8</span> &gt; <span style="color: #4e3163;">7</span>
+!<span style="color: #3a81c3;">(</span><span style="color: #4e3163;">1</span> &gt; <span style="color: #4e3163;">2</span><span style="color: #3a81c3;">)</span>
+</pre>
+</div>
+
+<ul>
+<li>To open the console:
+<ul>
+<li><b>Mac:</b> Command + Option + J</li>
+<li><b>Windows/Linux:</b> Control + Shift + J</li>
+
+</ul></li>
+<li>Live 1:1 chat help, click <a href="https://secure.livechatinc.com/licence/7021531/open_chat.cgi">here</a> or #2 on <b>Important URLS</b></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline13">
+<h3 id="orgheadline13">Variables</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">ten</span> = <span style="color: #4e3163;">10</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">create variable named `ten` and assign 10 to it.</span>
+<span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">myName</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">declares a variable without assigning anything</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">assign "Josh Lehman" to the existing variable `myName`</span>
+myName = <span style="color: #2d9574;">"Josh Lehman"</span>;
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">variable names can be used to reference their values</span>
+myName.length &gt; ten;
+ten + <span style="color: #4e3163;">5</span>;
+ten; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">?</span>
+ten = ten + <span style="color: #4e3163;">5</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">reassignment</span>
+ten; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">?</span>
+</pre>
+</div>
+
+<ul>
+<li><code>var</code> is used to <b>create</b> a new variable
+<ul>
+<li>The <code>=</code> sign is called the <i>assignment operator</i></li>
+
+</ul></li>
+<li>Variables are used:
+<ul>
+<li>To associate <i>names</i> with <i>values</i></li>
+<li>As storage locations</li>
+
+</ul></li>
+<li>Variables can be <i>reassigned</i></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline14">
+<h3 id="orgheadline14">Exercises: Variables</h3>
+<p>
+Do the following exercises at the console:
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">1. Change firstName below to contain your first name:</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">e.g. var firstName = "Josh"</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">2. Create a variable "lastName" that contains your last name</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">3. Combine firstName and lastName in with '+' and assign it to a</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">//    </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">variable called fullName</span>
+</pre>
+</div>
+
+<ul>
+<li>To open the console:
+<ul>
+<li><b>Mac:</b> Command + Option + J</li>
+<li><b>Windows/Linux:</b> Control + Shift + J</li>
+
+</ul></li>
+<li>Live 1:1 chat help, click <a href="https://secure.livechatinc.com/licence/7021531/open_chat.cgi">here</a> or #2 on <b>Important URLS</b></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline15">
+<h3 id="orgheadline15">Interlude: Equality</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">name</span> = <span style="color: #2d9574;">"Josh"</span>;
+name === <span style="color: #2d9574;">"Fred"</span>;
+name = <span style="color: #2d9574;">"Fred"</span>;
+name === <span style="color: #2d9574;">"Fred"</span>;
+</pre>
+</div>
+
+<p>
+The <code>=</code> sign is the <i>assignment</i> operator &#x2013; it <i>assigns</i> what's on the right to
+what's on the right.
+</p>
+
+<p>
+We use <code>===</code> to <i>test for equality</i>.
+</p>
+
+</section>
+<section id="slide-orgheadline16">
+<h3 id="orgheadline16">Compound Data: Objects</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">josh</span> = <span style="color: #3a81c3;">{</span>
+  name: <span style="color: #6c3163;">{</span> first: <span style="color: #2d9574;">"Josh"</span>, last: <span style="color: #2d9574;">"Lehman"</span> <span style="color: #6c3163;">}</span>, <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">nesting is ok!</span>
+  age: <span style="color: #4e3163;">26</span>, <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">key-value pairs are separated with commas</span>
+  gender: <span style="color: #2d9574;">"male"</span>,
+  programmer: <span style="color: #4e3163;">true</span>
+<span style="color: #3a81c3;">}</span>
+josh.age; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">dot notation</span>
+josh.name.first;
+josh<span style="color: #3a81c3;">[</span><span style="color: #2d9574;">"age"</span><span style="color: #3a81c3;">]</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">bracket notation</span>
+josh<span style="color: #3a81c3;">[</span><span style="color: #2d9574;">"name"</span><span style="color: #3a81c3;">][</span><span style="color: #2d9574;">"first"</span><span style="color: #3a81c3;">]</span>;
+josh.name.first = <span style="color: #2d9574;">"Joshua"</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">we can reassign values!</span>
+</pre>
+</div>
+
+<ul>
+<li>Used to talk about entities</li>
+<li>Comprised of <i>key,value</i> pairs
+<ul>
+<li><i>keys</i> are usually represented as strings</li>
+<li>Combine many kinds of data (hence, <b>compound</b>)</li>
+
+</ul></li>
+<li>Access values by <i>key</i>:
+<ul>
+<li>Dot Notation: <code>josh.age</code>, Bracket Notation: <code>josh["age"]</code></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline17">
+<h3 id="orgheadline17">Exercises: Objects</h3>
+<p>
+These exercises can be found in Codepen <a href="http://codepen.io/jlehman/pen/RrMBOv?editors=0010">here</a>.
+</p>
+
+<ul>
+<li>To open the console:
+<ul>
+<li><b>Mac:</b> Command + Option + J</li>
+<li><b>Windows/Linux:</b> Control + Shift + J</li>
+
+</ul></li>
+<li>Live 1:1 chat help, click <a href="https://secure.livechatinc.com/licence/7021531/open_chat.cgi">here</a> or #2 on <b>Important URLS</b></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline18">
+<h3 id="orgheadline18">Compound Data: Arrays</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">luckyNumbers</span> = <span style="color: #3a81c3;">[</span><span style="color: #4e3163;">12</span>, <span style="color: #4e3163;">19</span>, <span style="color: #4e3163;">7</span>, <span style="color: #4e3163;">3</span>, <span style="color: #4e3163;">28</span><span style="color: #3a81c3;">]</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">comma separated!</span>
+<span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">animals</span> = <span style="color: #3a81c3;">[</span><span style="color: #2d9574;">"monkey"</span>, <span style="color: #2d9574;">"giraffe"</span>, <span style="color: #2d9574;">"cat"</span>, <span style="color: #2d9574;">"dog"</span>, <span style="color: #2d9574;">"platypus"</span><span style="color: #3a81c3;">]</span>;
+<span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">people</span> = <span style="color: #3a81c3;">[</span>
+  <span style="color: #6c3163;">{</span>name: <span style="color: #2d9574;">"Ben Bitdiddle"</span>, age: <span style="color: #4e3163;">27</span><span style="color: #6c3163;">}</span>,
+  <span style="color: #6c3163;">{</span>name: <span style="color: #2d9574;">"Eva Lu Ator"</span>, age: <span style="color: #4e3163;">32</span><span style="color: #6c3163;">}</span>,
+  <span style="color: #6c3163;">{</span>name: <span style="color: #2d9574;">"Alyssa P. Hacker"</span>, age: <span style="color: #4e3163;">20</span><span style="color: #6c3163;">}</span>,
+  <span style="color: #6c3163;">{</span>name: <span style="color: #2d9574;">"Louis Reasoner"</span>, age: <span style="color: #4e3163;">54</span><span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">]</span>;
+animals<span style="color: #3a81c3;">[</span><span style="color: #4e3163;">0</span><span style="color: #3a81c3;">]</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">"monkey"</span>
+people<span style="color: #3a81c3;">[</span><span style="color: #4e3163;">2</span><span style="color: #3a81c3;">]</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">{name: "Alyssa P. Hacker", age: 20}</span>
+</pre>
+</div>
+
+<ul>
+<li>Arrays are used to represent <i>many</i> things
+<ul>
+<li>The elements of arrays can be <i>anything</i>: numbers, strings, objects, etc.</li>
+
+</ul></li>
+<li>Usually used to refer to many similar kinds of data</li>
+<li>Elements are <i>indexed</i> numerically from 0</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline19">
+<h3 id="orgheadline19">All Together Now</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">josh</span> = <span style="color: #3a81c3;">{</span>
+  name: <span style="color: #6c3163;">{</span>
+    first: <span style="color: #2d9574;">"Josh"</span>,
+    last: <span style="color: #2d9574;">"Lehman"</span>
+  <span style="color: #6c3163;">}</span>,
+  age: <span style="color: #4e3163;">26</span>,
+  gender: <span style="color: #2d9574;">"male"</span>,
+  programmer: <span style="color: #4e3163;">true</span>,
+  favoriteTVShows: <span style="color: #6c3163;">[</span><span style="color: #2d9574;">"Fargo"</span>, <span style="color: #2d9574;">"Breaking Bad"</span>, <span style="color: #2d9574;">"Battlestar Galactica"</span><span style="color: #6c3163;">]</span>,
+  pets: <span style="color: #6c3163;">[</span><span style="color: #2d9574;">{</span>type: <span style="color: #2d9574;">"cat"</span>, name: <span style="color: #2d9574;">"Pal"</span>, age: <span style="color: #4e3163;">3</span>, biochipped: <span style="color: #4e3163;">true</span>, color: <span style="color: #2d9574;">"orange"</span><span style="color: #2d9574;">}</span><span style="color: #6c3163;">]</span>
+<span style="color: #3a81c3;">}</span>
+josh.name.last; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">"Lehman"</span>
+josh.favoriteTVShows<span style="color: #3a81c3;">[</span><span style="color: #4e3163;">0</span><span style="color: #3a81c3;">]</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">"Fargo"</span>
+josh.pets<span style="color: #3a81c3;">[</span><span style="color: #4e3163;">0</span><span style="color: #3a81c3;">]</span>.type; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">"cat"</span>
+</pre>
+</div>
+
+<ul>
+<li>Anything can be accessed!
+<ul>
+<li>Use combination of <b>dot</b> and <b>bracket</b> notation</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline20">
+<h3 id="orgheadline20">Exercises: All the data!</h3>
+<p>
+These exercises can be found in Codepen <a href="http://codepen.io/jlehman/pen/RrMBOv?editors=0010">here</a>.
+</p>
+
+<ul>
+<li>To open the console:
+<ul>
+<li><b>Mac:</b> Command + Option + J</li>
+<li><b>Windows/Linux:</b> Control + Shift + J</li>
+
+</ul></li>
+<li>Live 1:1 chat help, click <a href="https://secure.livechatinc.com/licence/7021531/open_chat.cgi">here</a> or #2 on <b>Important URLS</b></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline21">
+<h3 id="orgheadline21">Recap</h3>
+<ul>
+<li><b>Primitives</b> are the most basic data types
+<ul>
+<li>Numbers, Strings, Booleans</li>
+
+</ul></li>
+<li><b>Variables</b> are named storage locations</li>
+<li><b>Objects</b> represent data with multiple characteristics</li>
+<li><b>Arrays</b> represent many pieces of data (usually similar)</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline30">
+<h2 id="orgheadline30">Basics of Functions</h2>
+<p>
+<i>Functions</i> allow us to represent a <i>task</i> with a name and parameters.
+</p>
+
+</section>
+<section id="slide-orgheadline23">
+<h3 id="orgheadline23">What are Functions?</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">"definition" of function named square that accepts one argument</span>
+<span style="color: #3a81c3; font-weight: bold;">function</span> <span style="color: #6c3163; font-weight: bold;">square</span><span style="color: #3a81c3;">(</span><span style="color: #715ab1;">x</span><span style="color: #3a81c3;">)</span> <span style="color: #3a81c3;">{</span>
+  <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">Inside of the curly braces is called the "body"</span>
+  <span style="color: #3a81c3; font-weight: bold;">return</span> x * x; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">return specifies the "result"</span>
+<span style="color: #3a81c3;">}</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">"invocation" of square function</span>
+square<span style="color: #3a81c3;">(</span><span style="color: #4e3163;">5</span><span style="color: #3a81c3;">)</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">"invoking" is also known as "calling"</span>
+square<span style="color: #3a81c3;">(</span>square<span style="color: #6c3163;">(</span><span style="color: #4e3163;">5</span><span style="color: #6c3163;">)</span><span style="color: #3a81c3;">)</span>;
+</pre>
+</div>
+
+<ul>
+<li>Functions specify instructions to accomplish some task</li>
+<li>Usually have a <i>name</i></li>
+<li>Usually have <i>arguments</i> (the stuff inside the parenthesis)</li>
+<li>Usually <code>return</code> a result</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline24">
+<h3 id="orgheadline24">Exercises: Basic Functions</h3>
+<p>
+These exercises can be found in Codepen <a href="http://codepen.io/jlehman/pen/RrMBOv?editors=0010">here</a>.
+</p>
+
+<ul>
+<li>To open the console:
+<ul>
+<li><b>Mac:</b> Command + Option + J</li>
+<li><b>Windows/Linux:</b> Control + Shift + J</li>
+
+</ul></li>
+<li>Live 1:1 chat help, click <a href="https://secure.livechatinc.com/licence/7021531/open_chat.cgi">here</a> or #2 on <b>Important URLS</b></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline25">
+<h3 id="orgheadline25">Functions with Multiple Arguments</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">Functions frequently have multiple arguments (separated by commas)</span>
+<span style="color: #3a81c3; font-weight: bold;">function</span> <span style="color: #6c3163; font-weight: bold;">add</span><span style="color: #3a81c3;">(</span><span style="color: #715ab1;">a</span>, <span style="color: #715ab1;">b</span><span style="color: #3a81c3;">)</span> <span style="color: #3a81c3;">{</span>
+  <span style="color: #3a81c3; font-weight: bold;">return</span> a + b;
+<span style="color: #3a81c3;">}</span>
+add<span style="color: #3a81c3;">(</span><span style="color: #4e3163;">1</span>, <span style="color: #4e3163;">2</span><span style="color: #3a81c3;">)</span>; <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">a: 1, b: 2, 1 + 2 =&gt; 3</span>
+
+<span style="color: #3a81c3; font-weight: bold;">function</span> <span style="color: #6c3163; font-weight: bold;">divide</span><span style="color: #3a81c3;">(</span><span style="color: #715ab1;">x</span>, <span style="color: #715ab1;">y</span><span style="color: #3a81c3;">)</span> <span style="color: #3a81c3;">{</span>
+  <span style="color: #3a81c3; font-weight: bold;">return</span> x / y;
+<span style="color: #3a81c3;">}</span>
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">The positions of arguments matters, not the names:</span>
+divide<span style="color: #3a81c3;">(</span><span style="color: #4e3163;">9</span>, <span style="color: #4e3163;">3</span><span style="color: #3a81c3;">)</span> <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">x: 9, y: 3, 9 / 3 =&gt; 3</span>
+divide<span style="color: #3a81c3;">(</span><span style="color: #4e3163;">3</span>, <span style="color: #4e3163;">9</span><span style="color: #3a81c3;">)</span> <span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">x: 3, y: 9, 3 / 9 =&gt; 0.333333333</span>
+</pre>
+</div>
+
+<ul>
+<li>Functions can have multiple arguments</li>
+<li><b>Remember</b>: arguments are just named placeholders!
+<ul>
+<li>The values are supplied when the function is <i>invoked</i> (or "called")</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline26">
+<h3 id="orgheadline26">Exercises: Functions with Multiple Arguments</h3>
+<p>
+These exercises can be found in Codepen <a href="http://codepen.io/jlehman/pen/RrMBOv?editors=0010">here</a>.
+</p>
+
+<ul>
+<li>To open the console:
+<ul>
+<li><b>Mac:</b> Command + Option + J</li>
+<li><b>Windows/Linux:</b> Control + Shift + J</li>
+
+</ul></li>
+<li>Live 1:1 chat help, click <a href="https://secure.livechatinc.com/licence/7021531/open_chat.cgi">here</a> or #2 on <b>Important URLS</b></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline27">
+<h3 id="orgheadline27">Functions with Data Structures</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript"><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">Functions frequently output data structures...</span>
+<span style="color: #3a81c3; font-weight: bold;">function</span> <span style="color: #6c3163; font-weight: bold;">makePerson</span><span style="color: #3a81c3;">(</span><span style="color: #715ab1;">name</span>, <span style="color: #715ab1;">age</span>, <span style="color: #715ab1;">cats</span><span style="color: #3a81c3;">)</span> <span style="color: #3a81c3;">{</span>
+  <span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">person</span> = <span style="color: #6c3163;">{</span>name: name, age: age, cats: cats<span style="color: #6c3163;">}</span>;
+  <span style="color: #3a81c3; font-weight: bold;">return</span> person;
+<span style="color: #3a81c3;">}</span>
+<span style="color: #3a81c3; font-weight: bold;">var</span> <span style="color: #715ab1;">johnDoe</span> = makePerson<span style="color: #3a81c3;">(</span><span style="color: #2d9574;">"John Doe"</span>, <span style="color: #4e3163;">35</span>, <span style="color: #6c3163;">[</span><span style="color: #2d9574;">"Fluffy"</span><span style="color: #6c3163;">]</span><span style="color: #3a81c3;">)</span>;
+
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">... will often receive them as arguments...</span>
+<span style="color: #3a81c3; font-weight: bold;">function</span> <span style="color: #6c3163; font-weight: bold;">aboutPerson</span><span style="color: #3a81c3;">(</span><span style="color: #715ab1;">person</span><span style="color: #3a81c3;">)</span> <span style="color: #3a81c3;">{</span>
+  <span style="color: #3a81c3; font-weight: bold;">return</span> person.name + <span style="color: #2d9574;">" is "</span> + person.age +
+    <span style="color: #2d9574;">" years old, and has "</span> + person.cats.length + <span style="color: #2d9574;">" cats."</span>;
+<span style="color: #3a81c3;">}</span>
+aboutPerson<span style="color: #3a81c3;">(</span>johnDoe<span style="color: #3a81c3;">)</span>;
+
+<span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec; font-style: italic;">... and can manipulate them!</span>
+<span style="color: #3a81c3; font-weight: bold;">function</span> <span style="color: #6c3163; font-weight: bold;">hadBirthday</span><span style="color: #3a81c3;">(</span><span style="color: #715ab1;">person</span><span style="color: #3a81c3;">)</span> <span style="color: #3a81c3;">{</span>
+  person.age = person.age + <span style="color: #4e3163;">1</span>;
+  <span style="color: #3a81c3; font-weight: bold;">return</span> person;
+<span style="color: #3a81c3;">}</span>
+hadBirthday<span style="color: #3a81c3;">(</span>johnDoe<span style="color: #3a81c3;">)</span>;
+</pre>
+</div>
+
+<ul>
+<li>Data structures and functions work well together</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline28">
+<h3 id="orgheadline28">Exercises: Functions with Data Structures</h3>
+<p>
+These exercises can be found in Codepen <a href="http://codepen.io/jlehman/pen/RrMBOv?editors=0010">here</a>.
+</p>
+
+<ul>
+<li>To open the console:
+<ul>
+<li><b>Mac:</b> Command + Option + J</li>
+<li><b>Windows/Linux:</b> Control + Shift + J</li>
+
+</ul></li>
+<li>Live 1:1 chat help, click <a href="https://secure.livechatinc.com/licence/7021531/open_chat.cgi">here</a> or #2 on <b>Important URLS</b></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline29">
+<h3 id="orgheadline29">Recap</h3>
+<ul>
+<li><b>Functions</b> describe how to perform a task given arguments (parameters)
+<ul>
+<li>Don't solve the same problem multiple times: <i>use a function</i></li>
+
+</ul></li>
+<li>Functions can take multiple arguments</li>
+<li>Arguments to and results from functions can be any kind of data</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: false,
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
