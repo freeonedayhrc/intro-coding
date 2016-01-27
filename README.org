@@ -21,7 +21,6 @@
 
 + Programming /is/ the act of writing computer code
 + Programming is /about/ building and working with ideas
-+ Programs are composed of /ideas/
 
 ** Why JavaScript?
 
