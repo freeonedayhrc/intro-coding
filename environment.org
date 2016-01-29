@@ -73,8 +73,8 @@ The default layout isn't great, but it can be changed!
 
 ** Console
 
-Unfortunately, functions and variables defined in codepen cannot be accessed
-from the console. You'll have to log their output to work with them.
+Fortunately, functions and variables defined in codepen can be accessed
+from the console.
 
 [[./img/codepen-console.gif]]
 
