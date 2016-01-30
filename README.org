@@ -17,6 +17,27 @@
 
 * Overview & Logistics
 
+** Expectations
+
++ You will be writing actual *code*
++ Cannot become a programmer in two hours, but:
+  + Get exposure to the basics
+  + Can experience the process of coding
+  + Have next steps
+
+** Class Format
+
++ The lecture is meant to be /interactive/
+  + Follow along with examples in lecture
+  + Exercises throughout
++ *Do not hesitate to ask for help*
+  + Public chat in lecture
+  + Private chat (see link in video details)
+
+** Questions about Hack Reactor & Remote Prep?
+
++ Information Session, 11:00-11:30AM PST
++ See *Important URLS* in Twitch for link
 ** What is Programming?
 
 + Programming /is/ the act of writing computer code
@@ -34,23 +55,6 @@ There are lots of great languages, but:
   + Browsers, servers, microcontrollers, iOS, Android, and more
 + JS is /expressive/
   + Can represent ideas in natural/interesting ways
-
-** Expectations
-
-+ You will be writing actual *code*
-+ Cannot become a programmer in two hours, but:
-  + Get exposure to the basics
-  + Can experience the process of coding
-  + Have next steps
-
-** Class Format
-
-+ The lecture is meant to be /interactive/
-  + Follow along with examples in lecture
-  + Exercises throughout
-+ *Do not hesitate to ask for help*
-  + Public chat in lecture
-  + Private chat (see link in video details)
 
 ** Topics Covered
 
@@ -412,7 +416,19 @@ These exercises can be found in Codepen [[http://codepen.io/jlehman/pen/RrMBOv?e
 
 ** Recap
 
+
 + *Functions* describe how to perform a task given arguments (parameters)
   + Don't solve the same problem multiple times: /use a function/
 + Functions can take multiple arguments
 + Arguments to and results from functions can be any kind of data
+
+
+* Next Steps
+** 15 Minute Phone Call
+
+Schedule a 15 minute phone call (see *Important URLS* in Twitch)
+
+** Questions about Hack Reactor & Remote Prep?
+
++ Information Session, 11:00-11:30AM PST
++ See *Important URLS* in Twitch for link

@@ -1,2 +1,6 @@
 .tern-port
 server/
+*.aux
+*.out
+*.log
+*.tex
